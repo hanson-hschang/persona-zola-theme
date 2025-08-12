@@ -1,0 +1,28 @@
+{% macro render(sections) %}
+
+<div class="container" data-aos="fade-up" data-aos-delay="200">
+  <div class="row m-0 justify-content-center">
+
+    {% for section in sections | sort(attribute="extra.order") %}
+      <div class="col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-4">
+        {# The data-aos-delay is now generated dynamically based on the loop's position #}
+        <div class="post-entry" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+          <a href="{{ section.permalink }}" class="thumb d-block">
+            {# Build the thumbnail URL correctly using the section's path and the thumbnail filename #}
+            <img class="img-fluid" src="{{ get_url(path=section.path ~ section.extra.thumbnail) }}" alt="Thumbnail for {{ section.title }}">
+          </a>
+          <div class="post-content">
+            <h3><a href="{{ section.permalink }}">{{ section.title }}</a></h3>
+            {# The content div from the original was removed for simplicity, you can add it back if needed #}
+            <p>
+              {{ section.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+    {% endfor %}
+  
+  </div>
+</div>
+{% endmacro render %}

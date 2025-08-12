@@ -1,0 +1,64 @@
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+/* Header - Desktop */
+@media (min-width: 768px) {
+    .header {
+      color: var(--default-color);
+      background-color: var(--background-color);
+      padding: var(--spacing-sm) 0;
+      transition: all 0.5s;
+      z-index: 997;
+    }
+  
+    .header:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--header-background-color);
+      z-index: -1;
+    }
+  
+    .header .logo {
+      line-height: 1;
+    }
+  
+    .header .logo img {
+      max-height: 32px;
+      margin-right: 8px;
+    }
+  
+    .header .logo h1 {
+      font-size: 30px;
+      margin: 0;
+      font-weight: 300;
+      color: var(--heading-color);
+    }
+  
+    .scrolled .header {
+      box-shadow: 0px 0 18px color-mix(in srgb, var(--default-color), transparent 85%);
+    }
+  }
+  
+  /* Header - Mobile */
+  @media (max-width: 767px) {
+    .header {
+      color: var(--default-color);
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      padding: 0 var(--nav-menu-border-padding);
+      transition: all ease-in-out 0.3s;
+      overflow-y: auto;
+      z-index: 997;
+      width: calc(var(--nav-menu-mobile-width) + var(--nav-menu-mobile-border-width));
+      background: var(--background-color);
+      border-right: var(--nav-menu-mobile-border-width) solid color-mix(in srgb, var(--default-color), transparent 90%);
+      /* left: -100%; */
+      left: calc(-1 * var(--nav-menu-mobile-width));
+    }
+  
+    .header.navmenu-show {
+      left: 0;
+    }
+  }

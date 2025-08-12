@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% import "macros/title.html" as title_macro %}
+{% import "macros/content.html" as content_macro %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ get_url(path='assets/css/section.css') }}">
+  <link rel="stylesheet" href="{{ get_url(path='assets/css/plain.css') }}">
+  <link rel="stylesheet" href="{{ get_url(path='assets/css/contact.css') }}">
+{% endblock head %}
+
+
+{% block main %}
+
+  <section class="plain section">
+
+    {{ 
+      title_macro::render(
+        title="Error 404 - Page Not Found", 
+        subtitle="The page you are looking for was not found or no longer exists."
+      ) 
+    }}
+
+  </section>
+
+  {#
+    It seems we can't find what you're looking for. Perhaps searching can help.
+    add a search bar here?
+  #}
+
+  {% include "partials/contact.html" %}
+{% endblock main %}
+
+
+{% block scripts %}
+  {{ super() }}
+  <script src="{{ get_url(path='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ get_url(path='assets/js/home.js') }}"></script>
+{% endblock scripts %}

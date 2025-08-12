@@ -1,0 +1,10 @@
+{% macro render(title, subtitle="") %}
+<div class="container" data-aos="fade-up">
+  <div class="section-title">
+    <h2>{{ title }}</h2>
+    {% if subtitle %}
+      <em>{{ subtitle | safe }}</em>
+    {% endif %}
+  </div>
+</div>
+{% endmacro render %}

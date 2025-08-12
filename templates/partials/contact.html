@@ -1,0 +1,22 @@
+{# 
+  Whichever page includes this partial will need to import the following at the top of the file.
+  import "macros/title.html" as title_macro
+#}
+
+<section id="contact" class="contact section">
+  
+  {% set page = get_page(path="home/contact.md") %}
+
+  {{ title_macro::render(title=page.title) }}
+
+  <div class="container" data-aos="fade" data-aos-delay="200">
+    <div class="row gy-4">
+
+      {% include "partials/contact-info.html" %}
+    
+      {% include "partials/contact-form.html" %}
+    
+    </div>
+  </div>
+
+</section>

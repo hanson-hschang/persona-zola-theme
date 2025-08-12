@@ -1,0 +1,90 @@
+{% import "macros/breadcrumbs.html" as breadcrumbs_macro %}
+{% import "macros/title.html" as title_macro %}
+{% import "macros/content.html" as content_macro %}
+{% import "macros/cards.html" as cards_macro %}
+{% import "macros/post-entry.html" as post_entry_macro %}
+
+
+{#
+  Section Macros
+  These macros are used to render different types of sections on the website.
+  The argument `pos` is expected to be a page or a section object that contains the necessary data.  
+#}
+
+
+{% macro plain(pos) %}
+  {% set title = pos.title %}
+  {% if pos.extra.subtitle %}
+    {% set subtitle = pos.extra.subtitle %}
+  {% else %}
+    {% set subtitle = "" %}
+  {% endif %}
+
+  <section id="{{ title | lower }}" class="plain section">
+
+    {{ title_macro::render(title=title, subtitle=subtitle) }}
+
+    {{ content_macro::render(content=pos.content) }}
+  
+  </section>
+{% endmacro plain %}
+
+
+{% macro category(pos) %}
+
+  <section id="{{ pos.title | lower }}" class="category section">
+  
+    {{ title_macro::render(title=pos.title) }}
+  
+    {% set_global subsections = [] %}
+    {% for subsection_path in pos.subsections %}
+      {% set subsection = get_section(path=subsection_path) %}
+      {% if subsection.extra.order and subsection.extra.order > 0 %}
+        {% set_global subsections = subsections | concat(with=[subsection]) %}
+      {% endif %}
+    {% endfor %}
+  
+    {{ cards_macro::render(sections=subsections) }}
+  
+  </section>
+
+{% endmacro category %}
+
+{% macro render(poss) %}
+
+  {% for pos in poss | sort(attribute="extra.order") %}
+    {% if "plain.html" == pos.extra.template %}
+      {{ section_macro::plain(pos=pos) }}
+    {% elif "category.html" == pos.extra.template %}
+      {{ section_macro::category(pos=pos) }}
+    {% else %}
+      {# show 404 #}
+    {% endif %}
+  {% endfor %}
+
+{% endmacro render %}
+
+{% macro blog(pos) %}
+
+  {{ breadcrumbs_macro::render(crumbs=pos.components) }}
+
+  <section id="{{ pos.title | lower }}" class="category section">
+  
+    {{ title_macro::render(title=pos.title) }}
+  
+  </section>
+
+  {% if pos.pages %}
+    <ol id="post-entries" class="container" data-aos="fade-up">
+      {% for page in pos.pages %}
+        {{ post_entry_macro::render(
+          title=page.title,
+          date=page.date | date(format="%b %d, %Y"),
+          link=page.permalink,
+          excerpt=page.extra.excerpt
+        ) }}
+      {% endfor %}
+    </ol>
+  {% endif %}
+
+{% endmacro blog %}

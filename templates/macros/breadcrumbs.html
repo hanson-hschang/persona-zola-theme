@@ -1,0 +1,20 @@
+{% macro render(crumbs) %}
+<div class="page-title d-flex align-items-center">
+  <div class="container" data-aos="fade">
+    <nav class="breadcrumbs">
+      <ol>
+        {% set_global url = "/" %}
+        <li><a href="{{ url }}">Home</a></li>
+        {% for crumb in crumbs %}
+          {% set_global url = url ~ crumb ~ "/" %}
+          {% if loop.last %}
+            <li class="current"></li>
+            {% else %}
+            <li><a href="{{ url }}">{{ crumb | capitalize }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+    </nav>
+  </div>
+</div>
+{% endmacro render %}

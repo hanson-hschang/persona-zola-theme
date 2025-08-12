@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% import "macros/section.html" as section_macro %}
+
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ get_url(path='assets/css/section.css') }}">
+  <link rel="stylesheet" href="{{ get_url(path='assets/css/plain.css') }}">
+{% endblock head %}
+
+
+{% block main %}
+
+  {% if page %}
+    {{ section_macro::plain(pos=page) }}
+  {% elif section %}
+    {{ section_macro::plain(pos=section) }}
+  {% else %}
+    {# Return to 404 #}
+  {% endif %}
+
+{% endblock main %}
+
+
+{% block scripts %}
+  {{ super() }}
+  <script src="{{ get_url(path='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ get_url(path='assets/js/home.js') }}"></script>
+{% endblock scripts %}

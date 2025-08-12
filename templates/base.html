@@ -1,0 +1,81 @@
+{% import "macros/head.html" as head_macro %}
+{% import "macros/icon-link.html" as icon_link_macro %}
+{% import "macros/debug.html" as debug_macro %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+    <!-- Meta Info -->
+    {{ head_macro::title() }}
+    <meta name="description" content="{{ config.description }}" >
+    <meta name="author" content="{{ config.author }}" >
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="{{ get_url(path='assets/img/favicon.ico') }}" >
+    <link rel="apple-touch-icon" href="{{ get_url(path='assets/img/apple-touch-icon.png') }}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;700&display=swap">
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="{{ get_url(path='assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ get_url(path='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ get_url(path='assets/vendor/aos/aos.css') }}">
+    <link rel="stylesheet" href="{{ get_url(path='assets/vendor/glightbox/css/glightbox.min.css') }}">
+    <link rel="stylesheet" href="{{ get_url(path='assets/vendor/swiper/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ get_url(path='assets/vendor/academicons/css/academicons.min.css') }}"/>
+
+    <!-- Debug CSS -->
+    {% if page.extra.tex %}
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+    {% endif %}
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{ get_url(path='assets/css/base.css') }}">
+    <link rel="stylesheet" href="{{ get_url(path='assets/css/footer.css') }}">
+    <link rel="stylesheet" href="{{ get_url(path='assets/css/preloader.css') }}">
+    {% endblock head %}
+  </head>
+
+  <body>
+    <!-- Main -->
+    <main class="main">
+    {% block main %} {% endblock main %}
+    </main>
+
+    <!-- Footer -->
+    {% include "partials/footer.html" %}
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Java Scripts -->
+    {% block scripts %}
+      {% if page.extra.tex %}
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            const katexMacros = {{ page.extra.tex.macros | json_encode | default(value="{}") | safe }};
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                ],
+                macros: katexMacros
+            });
+          });
+        </script>
+      {% endif %}
+    {% endblock scripts %}
+     
+  </body>
+
+</html>

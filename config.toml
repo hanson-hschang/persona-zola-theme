@@ -1,0 +1,44 @@
+# The URL the site will be built for
+base_url = "https://hanson-hschang.github.io/zola-persona-theme"
+
+# The site title and description
+title = "Persona - Zola Theme"
+description = "A portfolio, a resume, a blog, and a Zola theme."
+author = "Chang, Heng-Sheng"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+taxonomies = [
+  { name = "tags" },
+  { name = "categories" },
+]
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customized by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+# Whether external links are to be opened in a new tab
+# If this is true, a `rel="noopener"` will always automatically be added for security reasons
+external_links_target_blank = true
+
+# Whether to set rel="nofollow" for all external links
+external_links_no_follow = false
+
+# Whether to set rel="noreferrer" for all external links
+external_links_no_referrer = true
+
+# Variables that can be overridden in the end user's `config.toml`
+[extra]
+server_side_katex = true # true: enable server-side KaTeX rendering via scripts/katex.js (this will also include KaTeX CSS and fonts in the build)
+quote = "There's the private persona and the public persona, and the two shall never meet. --- Liev Schreiber"
+social_links = [
+  { name = "GitHub", url = "https://github.com/hanson-hschang/zola-persona-theme", icon_class = "bi bi-github" },
+]
+copyright = "&copy; All Rights Reserved"
+credits = "Powered by [BootstrapMade](https://bootstrapmade.com/) and [Zola](https://www.getzola.org/)"
+

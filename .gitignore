@@ -1,0 +1,8 @@
+# Mac files
+.DS_Store
+
+# Zola build directory
+public/
+
+# processed images
+static/processed_images/

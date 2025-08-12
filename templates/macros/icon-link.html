@@ -1,0 +1,39 @@
+{% macro social(links, extra_classes="") %}
+<div class="social-links{% if extra_classes %} {{ extra_classes }}{% endif %}">
+  {% for link in links %}
+    <a href="{{ link.url }}" 
+       aria-label="Link to my {{ link.name }} profile" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      <i class="{{ link.icon_class }}" aria-hidden="true"></i>
+    </a>
+  {% endfor %}
+</div>
+{% endmacro render %}
+
+
+{% macro share() %}
+<div id="share-menu" class="share-menu">
+  <a id="share-link" class="share-menu-item" href="#" >
+    <i class="bi bi-link-45deg" aria-hidden="true"></i>
+    <span>Get link</span>
+  </a>
+  <div class="share-menu-divider"></div>
+  <a id="share-linkedin" class="share-menu-item" href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.permalink }}" target="_blank" rel="noopener noreferrer">
+    <i class="bi bi-linkedin" aria-hidden="true"></i>
+    <span>Share on LinkedIn</span>
+  </a>
+  <a id="share-facebook" class="share-menu-item" href="https://www.facebook.com/sharer/sharer.php?u={{ page.permalink }}" target="_blank" rel="noopener noreferrer">
+    <i class="bi bi-facebook" aria-hidden="true"></i>
+    <span>Share on Facebook</span>
+  </a>
+  <a id="share-x" class="share-menu-item" href="https://x.com/intent/tweet?url={{ page.permalink }}" target="_blank" rel="noopener noreferrer">
+    <i class="bi bi-twitter-x" aria-hidden="true"></i>
+    <span>Share on X</span>
+  </a>
+  <a id="share-email" class="share-menu-item" href="mailto:?subject={{ page.title }}&body={{ page.permalink }}">
+    <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+    <span>Email</span>
+  </a>
+</div>
+{% endmacro share%}

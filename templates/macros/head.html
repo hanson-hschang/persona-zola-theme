@@ -1,0 +1,14 @@
+{% macro title() %}
+<title>
+  {% if page and page.title %}
+    {# This handles regular pages #}
+    {{ page.title }} &middot; {{ config.title }}
+  {% elif section and section.title %}
+    {# This new part handles section pages #}
+    {{ section.title }} &middot; {{ config.title }}
+  {% else %}
+    {# This handles the homepage or pages without any title #}
+    {{ config.title }}
+  {% endif %}
+</title>
+{% endmacro title %}

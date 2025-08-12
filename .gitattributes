@@ -1,0 +1,4 @@
+content/**/img/** filter=lfs diff=lfs merge=lfs -text
+content/home/*.jpg filter=lfs diff=lfs merge=lfs -text
+content/home/*.png filter=lfs diff=lfs merge=lfs -text
+content/home/*.gif filter=lfs diff=lfs merge=lfs -text

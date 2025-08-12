@@ -1,0 +1,38 @@
+# The name of the theme
+name = "persona"
+
+# The description for this theme
+description = "A portfolio, a resume, a blog, and a Zola theme."
+
+# Tags to allow quick search
+tags = ["portfolio", "resume", "blog"]
+
+# Copyright
+license = "MIT"
+
+# A live demo URL
+homepage = "https://hanson-hschang.github.io/zola-persona-theme"
+
+# The minimum version of Zola required
+min_version = "0.20.0"
+
+# Variables that can be overridden in the end user's `config.toml`
+[extra]
+server_side_katex = true # true: enable server-side KaTeX rendering via scripts/katex.js (this will also include KaTeX CSS and fonts in the build)
+quote = "There's the private persona and the public persona, and the two shall never meet. --- Liev Schreiber"
+social_links = [
+  { name = "GitHub", url = "https://github.com/hanson-hschang/zola-persona-theme", icon_class = "bi bi-github" },
+]
+copyright = "&copy; All Rights Reserved"
+credits = "Powered by [BootstrapMade](https://bootstrapmade.com/) and [Zola](https://www.getzola.org/)"
+
+# The theme author info
+[author]
+name = "Chang, Heng-Sheng"
+homepage = "https://hanson-hschang.github.io/"
+
+# The theme is largely based on "MyResume - Bootstrap Resume and Portfolio Template"
+[original]
+author =  "bootstrapmade"
+homepage = "https://bootstrapmade.com/demo/MyResume/"
+repo = "https://bootstrapmade.com/free-html-bootstrap-template-my-resume/"

@@ -1,0 +1,11 @@
+{% macro render(title, date, link, excerpt) %}
+<li class="container post-entry border-bottom">
+  <div class="post-meta d-flex justify-content-between align-items-center">
+    <h4 class="post-title">
+      <a href="{{ link }}">{{ title }}</a>
+    </h4>
+    <h5 class="post-date">{{ date }}</h5>
+  </div>
+  <p class="mb-4 d-block">{{ excerpt }}</p>
+</li>
+{% endmacro render %}
