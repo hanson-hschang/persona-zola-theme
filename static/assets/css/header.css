@@ -2,63 +2,123 @@
 # Global Header
 --------------------------------------------------------------*/
 /* Header - Desktop */
-@media (min-width: 768px) {
-    .header {
-      color: var(--default-color);
-      background-color: var(--background-color);
-      padding: var(--spacing-sm) 0;
-      transition: all 0.5s;
-      z-index: 997;
-    }
-  
-    .header:before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: var(--header-background-color);
-      z-index: -1;
-    }
-  
-    .header .logo {
-      line-height: 1;
-    }
-  
-    .header .logo img {
-      max-height: 32px;
-      margin-right: 8px;
-    }
-  
-    .header .logo h1 {
-      font-size: 30px;
-      margin: 0;
-      font-weight: 300;
-      color: var(--heading-color);
-    }
-  
-    .scrolled .header {
-      box-shadow: 0px 0 18px color-mix(in srgb, var(--default-color), transparent 85%);
-    }
+.header {
+  color: var(--default-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0 var(--nav-menu-border-padding);
+  transition: all ease-in-out 0.3s;
+  overflow-y: auto;
+  z-index: 997;
+}
+
+@media (max-width: 991px) {
+  .header {
+    width: calc(var(--nav-menu-mobile-width) + var(--nav-menu-mobile-border-width));
+    background: var(--background-color);
+    border-right: var(--nav-menu-mobile-border-width) solid color-mix(in srgb, var(--default-color), transparent 90%);
+    left: calc(-1 * var(--nav-menu-mobile-width));
   }
-  
-  /* Header - Mobile */
-  @media (max-width: 767px) {
-    .header {
-      color: var(--default-color);
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      padding: 0 var(--nav-menu-border-padding);
-      transition: all ease-in-out 0.3s;
-      overflow-y: auto;
-      z-index: 997;
-      width: calc(var(--nav-menu-mobile-width) + var(--nav-menu-mobile-border-width));
-      background: var(--background-color);
-      border-right: var(--nav-menu-mobile-border-width) solid color-mix(in srgb, var(--default-color), transparent 90%);
-      /* left: -100%; */
-      left: calc(-1 * var(--nav-menu-mobile-width));
-    }
-  
-    .header.navmenu-show {
-      left: 0;
-    }
+}
+
+@media (min-width: 992px) {
+  .header~main {
+    margin-left: calc(
+      var(--nav-menu-width) + 
+      calc(2*var(--nav-menu-border-padding))
+    );
   }
+
+  .header~main .hero {
+    margin-left: calc(
+      calc(-1*var(--nav-menu-width)) -
+      calc(2*var(--nav-menu-border-padding))
+    );
+    width: 100vw;
+  }
+}
+
+.header.navmenu-show {
+  left: 0;
+}
+
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+.navmenu {
+  padding: 0;
+  z-index: 9997;
+}
+
+.navmenu ul {
+  list-style: none;
+  padding: 0 0 20px 0;
+  margin: 0;
+  width: calc(var(--nav-menu-mobile-width)-2*var(--nav-menu-border-padding));
+}
+
+.navmenu a,
+.navmenu a:focus {
+  color: var(--nav-color);
+  font-family: var(--nav-font);
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  border-radius: 50px;
+  background: color-mix(in srgb, var(--default-color), transparent 92%);
+  height: var(--nav-icon-size);
+  width: 100%;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.navmenu a i,
+.navmenu a:focus i {
+  font-size: 20px;
+}
+
+.navmenu a span,
+.navmenu a:focus span {
+  padding: 0 5px 0 7px;
+}
+
+@media (min-width: 992px) {
+
+  .navmenu ul {
+    width: var(--nav-menu-width);
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    max-width: var(--nav-icon-size);
+  }
+
+  .navmenu a span,
+  .navmenu a:focus span {
+    display: none;
+  }
+}
+
+.navmenu a:hover,
+.navmenu .active,
+.navmenu .active:focus,
+.navmenu li:hover>a {
+  color: var(--contrast-color);
+  background: var(--nav-hover-color);
+}
+
+.navmenu a:hover,
+.navmenu li:hover>a {
+  max-width: 100%;
+  color: var(--contrast-color);
+}
+
+.navmenu a:hover span,
+.navmenu li:hover>a span {
+  display: block;
+}

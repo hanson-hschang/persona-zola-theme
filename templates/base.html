@@ -39,12 +39,21 @@
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{ get_url(path='assets/css/base.css') }}">
+    <link rel="stylesheet" href="{{ get_url(path='assets/css/header.css') }}">
     <link rel="stylesheet" href="{{ get_url(path='assets/css/footer.css') }}">
     <link rel="stylesheet" href="{{ get_url(path='assets/css/preloader.css') }}">
     {% endblock head %}
   </head>
 
   <body>
+
+    <!-- Header -->
+    <header id="header" class="header d-flex flex-column justify-content-center">
+    {% block header %} 
+      {% include "partials/navigation.html" %}
+    {% endblock header %}
+    </header>
+
     <!-- Main -->
     <main class="main">
     {% block main %} {% endblock main %}

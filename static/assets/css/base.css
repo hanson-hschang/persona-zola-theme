@@ -39,6 +39,15 @@
   --title-font-size: 64px; /* Font size for titles, such as hero section titles */
 }
 
+/* Nav Menu Dimensions */
+:root {
+  --nav-icon-size: 56px; /* The size of the navigation menu icons */
+  --nav-menu-width: 140px; /* The width of the navigation menu */
+  --nav-menu-mobile-width: 300px; /* The width of the navigation menu */
+  --nav-menu-border-padding: 15px; /* The padding width of the navigation menu */
+  --nav-menu-mobile-border-width: 1px; /* The border width of the navigation menu */
+}
+
 /* Spacing Variables - These variables define the spacing used throughout the website. They can be used to maintain consistent spacing between elements, such as margins and paddings */
 :root {
   --spacing-xxs: 0.25rem; /* 4px assuming 16px base */
