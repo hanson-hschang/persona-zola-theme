@@ -25,6 +25,17 @@
         backSpeed: 50,
         backDelay: 2000
       }
+    },
+    navigation: {
+      header: '#header',
+      toggleBtn: '.nav-toggle',
+      navmenu: '#navmenu',
+      dropdownToggle: '.navmenu .toggle-dropdown',
+      scrollOffset: 200
+    },
+    scrollTop: {
+      selector: '.scroll-top',
+      threshold: 100
     }
   };
 
@@ -46,9 +57,19 @@
       document.addEventListener('DOMContentLoaded', () => {
         this.initAOS();
         this.initTyped();
+        this.initNavigation();
+        this.initScrollTop();
         // Future initializations can be added here easily.
         // e.g., this.initSwiper();
       });
+
+      // Initialize scroll-dependent features on load
+      window.addEventListener('load', () => {
+        this.initNavmenuScrollspy();
+      });
+
+      // Initialize scroll event listeners
+      this.initScrollEvents();
     },
     
     /**
@@ -105,6 +126,163 @@
           ...CONFIG.typed.options // Use spread syntax for clean option merging
         });
       });
+    },
+
+    /**
+     * Initializes navigation functionality including mobile toggle and dropdowns.
+     */
+    initNavigation() {
+      this.initHeaderToggle();
+      this.initNavmenuLinks();
+      this.initDropdownToggles();
+    },
+
+    /**
+     * Sets up the mobile navigation toggle functionality.
+     */
+    initHeaderToggle() {
+      const headerToggleBtn = document.querySelector(CONFIG.navigation.toggleBtn);
+      const header = document.querySelector(CONFIG.navigation.header);
+
+      if (!headerToggleBtn || !header) {
+        return;
+      }
+
+      const toggleHeader = () => {
+        header.classList.toggle('navmenu-show');
+        headerToggleBtn.classList.toggle('bi-list');
+        headerToggleBtn.classList.toggle('bi-x');
+      };
+
+      headerToggleBtn.addEventListener('click', toggleHeader);
+
+      // Store reference for potential cleanup
+      this.headerToggle = toggleHeader;
+    },
+
+    /**
+     * Sets up navigation menu links to close mobile nav on click.
+     */
+    initNavmenuLinks() {
+      const navmenuLinks = document.querySelectorAll(`${CONFIG.navigation.navmenu} a`);
+      const header = document.querySelector(CONFIG.navigation.header);
+
+      if (!navmenuLinks.length || !header) {
+        return;
+      }
+
+      navmenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (header.classList.contains('navmenu-show') && this.headerToggle) {
+            this.headerToggle();
+          }
+        });
+      });
+    },
+
+    /**
+     * Sets up dropdown toggle functionality for navigation submenus.
+     */
+    initDropdownToggles() {
+      const dropdownToggles = document.querySelectorAll(CONFIG.navigation.dropdownToggle);
+
+      dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          this.parentNode.classList.toggle('active');
+          this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+          e.stopImmediatePropagation();
+        });
+      });
+    },
+
+    /**
+     * Initializes scroll-to-top button functionality.
+     */
+    initScrollTop() {
+      const scrollTopBtn = document.querySelector(CONFIG.scrollTop.selector);
+
+      if (!scrollTopBtn) {
+        return;
+      }
+
+      // Handle click event
+      scrollTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Store reference for scroll event handler
+      this.scrollTopBtn = scrollTopBtn;
+    },
+
+    /**
+     * Initializes navigation scrollspy functionality.
+     */
+    initNavmenuScrollspy() {
+      const navmenuLinks = document.querySelectorAll(`${CONFIG.navigation.navmenu} a`);
+
+      if (!navmenuLinks.length) {
+        return;
+      }
+
+      const updateActiveNavLink = () => {
+        navmenuLinks.forEach(link => {
+          if (!link.hash) return;
+          
+          const section = document.querySelector(link.hash);
+          if (!section) return;
+          
+          const position = window.scrollY + CONFIG.navigation.scrollOffset;
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          
+          if (position >= sectionTop && position <= sectionBottom) {
+            // Remove active class from all links
+            document.querySelectorAll(`${CONFIG.navigation.navmenu} a.active`)
+              .forEach(activeLink => activeLink.classList.remove('active'));
+            // Add active class to current link
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      };
+
+      // Store reference for scroll event handler
+      this.navmenuScrollspy = updateActiveNavLink;
+    },
+
+    /**
+     * Initializes scroll event handlers.
+     */
+    initScrollEvents() {
+      const handleScroll = () => {
+        this.toggleScrollTopVisibility();
+        if (this.navmenuScrollspy) {
+          this.navmenuScrollspy();
+        }
+      };
+
+      // Add scroll event listeners
+      window.addEventListener('load', handleScroll);
+      document.addEventListener('scroll', handleScroll);
+    },
+
+    /**
+     * Toggles scroll-to-top button visibility based on scroll position.
+     */
+    toggleScrollTopVisibility() {
+      if (this.scrollTopBtn) {
+        if (window.scrollY > CONFIG.scrollTop.threshold) {
+          this.scrollTopBtn.classList.add('active');
+        } else {
+          this.scrollTopBtn.classList.remove('active');
+        }
+      }
     }
   };
 

@@ -122,3 +122,30 @@
 .navmenu li:hover>a span {
   display: block;
 }
+
+
+/*--------------------------------------------------------------
+# Navigation Toggle
+--------------------------------------------------------------*/
+.nav-toggle {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--botton-size);
+  height: var(--botton-size);
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  top: var(--botton-position-away-from-corner-vertical-distance);
+  right: var(--botton-position-away-from-corner-horizontal-distance);
+  z-index: 9999;
+  transition: background-color 0.3s;
+}
+
+.nav-toggle:hover {
+  color: var(--contrast-color);
+  background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}

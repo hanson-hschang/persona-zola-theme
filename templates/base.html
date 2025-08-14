@@ -39,7 +39,7 @@
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{ get_url(path='assets/css/base.css') }}">
-    <link rel="stylesheet" href="{{ get_url(path='assets/css/header.css') }}">
+    <link rel="stylesheet" href="{{ get_url(path='assets/css/navigation.css') }}">
     <link rel="stylesheet" href="{{ get_url(path='assets/css/footer.css') }}">
     <link rel="stylesheet" href="{{ get_url(path='assets/css/preloader.css') }}">
     {% endblock head %}
@@ -53,6 +53,9 @@
       {% include "partials/navigation.html" %}
     {% endblock header %}
     </header>
+
+    <!-- Navigation Menu Toggle -->
+    <i class="nav-toggle d-lg-none bi bi-list"></i>
 
     <!-- Main -->
     <main class="main">
