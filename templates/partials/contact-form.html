@@ -1,21 +1,33 @@
 <div class="col-lg-8">
-  <form action="/assets/forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+  <form action="/assets/forms/contact.php" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="200">
     <div class="row gy-4">
 
       <div class="col-md-6">
-        <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+        <div class="input-box">
+          <input required type="text" id="name" name="name" class="form-control">
+          <label class="label" for="name">Name</label>
+        </div>
       </div>
 
-      <div class="col-md-6 ">
-        <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+      <div class="col-md-6">
+        <div class="input-box">
+          <input type="email" id="email" name="email" class="form-control" required>
+          <label class="label" for="email">Email</label>
+        </div>
       </div>
 
       <div class="col-md-12">
-        <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+        <div class="input-box">
+          <input type="text" id="subject" name="subject" class="form-control" required>
+          <label class="label" for="subject">Subject</label>
+        </div>
       </div>
 
       <div class="col-md-12">
-        <textarea class="form-control" name="message" rows="3" placeholder="Message" required=""></textarea>
+        <div class="input-box">
+          <textarea name="message" id="message" class="form-control" rows="3" required></textarea>
+          <label class="label" for="message">Message</label>
+        </div>
       </div>
 
       <div class="col-md-12 text-center">
