@@ -1,5 +1,5 @@
 +++
-title = "Persona"
+title = "Persona Theme"
 template = "404.html"
 page_template = "404.html"
 [extra]

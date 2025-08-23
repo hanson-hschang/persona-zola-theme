@@ -2,9 +2,9 @@
 base_url = "https://hanson-hschang.github.io/zola-persona-theme"
 
 # The site title and description
-title = "Persona - Zola Theme"
+title = "Persona Theme - Zola"
 description = "A portfolio, a resume, a blog, and a Zola theme."
-author = "Chang, Heng-Sheng"
+author = "Zola, Persona Theme"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -42,3 +42,12 @@ social_links = [
 copyright = "&copy; All Rights Reserved"
 credits = "Powered by [BootstrapMade](https://bootstrapmade.com/) and [Zola](https://www.getzola.org/)"
 
+[extra.contact]
+infos = [
+  { item = "Name", content = "Zola, Persona Theme", icon_class = "bi bi-person"},
+  { item = "Email", content = "hanson.hschang+zola.persona.theme@gmail.com", icon_class = "bi bi-envelope"},
+  { item = "Website", content = "https://hanson-hschang.github.io/zola-persona-theme", icon_class = "bi bi-geo-alt"}
+]
+# To set up web3form contact form, please create your public access key (following the instruction at https://web3forms.com/),
+# and uncomment the following line with the access key
+# web3form_public_key = "YOUR_ACCESS_KEY_HERE"

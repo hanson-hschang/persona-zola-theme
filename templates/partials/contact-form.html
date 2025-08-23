@@ -1,6 +1,9 @@
 <div class="col-lg-8">
-  <form action="/assets/forms/contact.php" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="200">
+  <form action="https://api.web3forms.com/submit" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="200">
+    
     <div class="row gy-4">
+
+      <input type="hidden" name="access_key" value="{{ config.extra.contact.web3form_public_key }}">
 
       <div class="col-md-6">
         <div class="input-box">
@@ -29,6 +32,12 @@
           <label class="label" for="message">Message</label>
         </div>
       </div>
+
+      <!-- Honeypot Spam Protection -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+      <!-- Custom Confirmation / Success Page -->
+      <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
 
       <div class="col-md-12 text-center">
         <div class="loading">Loading</div>
