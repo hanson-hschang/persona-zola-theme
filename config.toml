@@ -40,13 +40,12 @@ social_links = [
   { name = "GitHub", url = "https://github.com/hanson-hschang/zola-persona-theme", icon_class = "bi bi-github" },
 ]
 copyright = "&copy; All Rights Reserved"
-credits = "Powered by [BootstrapMade](https://bootstrapmade.com/) and [Zola](https://www.getzola.org/)"
+credits = "Powered by [Bootstrap](https://getbootstrap.com/), [Zola](https://www.getzola.org/), and [Web3Forms](https://web3forms.com/)"
 
 [extra.contact]
 infos = [
   { item = "Name", content = "Zola, Persona Theme", icon_class = "bi bi-person"},
-  { item = "Email", content = "hanson.hschang+zola.persona.theme@gmail.com", icon_class = "bi bi-envelope"},
-  { item = "Website", content = "https://hanson-hschang.github.io/zola-persona-theme", icon_class = "bi bi-geo-alt"}
+  { item = "Email", content = "hanson.hschang+zola.persona.theme@gmail.com", icon_class = "bi bi-envelope"}
 ]
 # To set up web3form contact form, please create your public access key (following the instruction at https://web3forms.com/),
 # and uncomment the following line with the access key

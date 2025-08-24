@@ -1,44 +1,44 @@
 <div class="col-lg-8">
   <form action="https://api.web3forms.com/submit" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="200">
     
-    <div class="row gy-4">
+    <fieldset class="row gy-4">
+      <legend style="display: none;">Contact Information</legend>
+      <div class="col-md-6 input-box">
+        <input required type="text" id="name" name="name" class="form-control">
+        <label class="label" for="name">Name</label>
+      </div>
+      <div class="col-md-6 input-box">
+        <input type="email" id="email" name="email" class="form-control" required>
+        <label class="label" for="email">Email</label>
+      </div>
+    </fieldset>
+    
+    <fieldset class="row gy-4">
+      <legend style="display: none;">Contact Content</legend>
+      <div class="col-md-12 input-box">
+        <input type="text" id="subject" name="subject" class="form-control" required>
+        <label class="label" for="subject">Subject</label>
+      </div>
+      <div class="col-md-12 input-box">
+        <textarea name="message" id="message" class="form-control" rows="3" required></textarea>
+        <label class="label" for="message">Message</label>
+      </div>
+    </fieldset>
+    
+    <fieldset class="row gy-4" style="display: none;">
+      <legend>Web3Forms Settings</legend>
 
+      <!-- Web3Forms Access Key -->
       <input type="hidden" name="access_key" value="{{ config.extra.contact.web3form_public_key }}">
-
-      <div class="col-md-6">
-        <div class="input-box">
-          <input required type="text" id="name" name="name" class="form-control">
-          <label class="label" for="name">Name</label>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="input-box">
-          <input type="email" id="email" name="email" class="form-control" required>
-          <label class="label" for="email">Email</label>
-        </div>
-      </div>
-
-      <div class="col-md-12">
-        <div class="input-box">
-          <input type="text" id="subject" name="subject" class="form-control" required>
-          <label class="label" for="subject">Subject</label>
-        </div>
-      </div>
-
-      <div class="col-md-12">
-        <div class="input-box">
-          <textarea name="message" id="message" class="form-control" rows="3" required></textarea>
-          <label class="label" for="message">Message</label>
-        </div>
-      </div>
 
       <!-- Honeypot Spam Protection -->
       <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
       <!-- Custom Confirmation / Success Page -->
       <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
+    </fieldset>
 
+    <div class="row gy-4">
       <div class="col-md-12 text-center">
         <div class="loading">Loading</div>
         <div class="error-message"></div>
@@ -48,7 +48,6 @@
 
         <button type="submit">Send Message</button>
       </div>
-
     </div>
   </form>
 </div>
