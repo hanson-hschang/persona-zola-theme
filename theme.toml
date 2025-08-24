@@ -24,7 +24,7 @@ social_links = [
   { name = "GitHub", url = "https://github.com/hanson-hschang/zola-persona-theme", icon_class = "bi bi-github" },
 ]
 copyright = "&copy; All Rights Reserved"
-credits = "Powered by [Bootstrap](https://getbootstrap.com/), [Zola](https://www.getzola.org/), and [Web3Forms](https://web3forms.com/)"
+credits = "Powered by [Zola](https://www.getzola.org/), [Bootstrap](https://getbootstrap.com/), and [Web3Forms](https://web3forms.com/)"
 
 [extra.contact]
 infos = [

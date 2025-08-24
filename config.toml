@@ -1,4 +1,4 @@
-# The URL the site will be built for
+# The URL this site will be built for
 base_url = "https://hanson-hschang.github.io/zola-persona-theme"
 
 # The site title and description
@@ -34,13 +34,11 @@ external_links_no_referrer = true
 
 # Variables that can be overridden in the end user's `config.toml`
 [extra]
-server_side_katex = true # true: enable server-side KaTeX rendering via scripts/katex.js (this will also include KaTeX CSS and fonts in the build)
 quote = "There's the private persona and the public persona, and the two shall never meet. --- Liev Schreiber"
 social_links = [
   { name = "GitHub", url = "https://github.com/hanson-hschang/zola-persona-theme", icon_class = "bi bi-github" },
 ]
 copyright = "&copy; All Rights Reserved"
-credits = "Powered by [Bootstrap](https://getbootstrap.com/), [Zola](https://www.getzola.org/), and [Web3Forms](https://web3forms.com/)"
 
 [extra.contact]
 infos = [
