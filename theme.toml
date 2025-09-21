@@ -1,5 +1,5 @@
 # The name of the theme
-name = "Persona Theme"
+name = "Persona"
 
 # The description for this theme
 description = "A portfolio, a resume, a blog, and a Zola theme."
@@ -11,30 +11,13 @@ tags = ["portfolio", "resume", "blog"]
 license = "MIT"
 
 # A live demo URL
-homepage = "https://hanson-hschang.github.io/zola-persona-theme"
+homepage = "https://hanson-hschang.github.io/persona-zola-theme"
 
 # The minimum version of Zola required
 min_version = "0.20.0"
 
-# Variables that can be overridden in the end user's `config.toml`
+# Refer to provided config.toml; [extra.persona]
 [extra]
-server_side_katex = true # true: enable server-side KaTeX rendering via scripts/katex.js (this will also include KaTeX CSS and fonts in the build)
-quote = "There's the private persona and the public persona, and the two shall never meet. --- Liev Schreiber"
-social_links = [
-  { name = "GitHub", url = "https://github.com/hanson-hschang/zola-persona-theme", icon_class = "bi bi-github" },
-]
-copyright = "&copy; All Rights Reserved"
-credits = "Powered by [Zola](https://www.getzola.org/), [Bootstrap](https://getbootstrap.com/), and [Web3Forms](https://web3forms.com/)"
-
-[extra.contact]
-infos = [
-  { item = "Name", content = "Zola, Persona Theme", icon_class = "bi bi-person"},
-  { item = "Email", content = "hanson.hschang+zola.persona.theme@gmail.com", icon_class = "bi bi-envelope"}
-]
-# To set up web3form contact form, please create your public access key (following the instruction at https://web3forms.com/),
-# and uncomment the following line with the access key
-# web3form_public_key = "YOUR_ACCESS_KEY_HERE"
-
 
 # The theme author info
 [author]

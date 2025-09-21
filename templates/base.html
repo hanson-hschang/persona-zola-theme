@@ -39,7 +39,6 @@
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{ get_url(path='assets/css/base.css') }}">
-    <link rel="stylesheet" href="{{ get_url(path='assets/css/navigation.css') }}">
     <link rel="stylesheet" href="{{ get_url(path='assets/css/footer.css') }}">
     <link rel="stylesheet" href="{{ get_url(path='assets/css/preloader.css') }}">
     {% endblock head %}
@@ -48,11 +47,9 @@
   <body>
 
     <!-- Header -->
-    <header id="header" class="header d-flex flex-column justify-content-center">
     {% block header %} 
       {% include "partials/navigation.html" %}
     {% endblock header %}
-    </header>
 
     <!-- Navigation Menu Toggle -->
     <i class="nav-toggle d-lg-none bi bi-list"></i>
@@ -77,11 +74,11 @@
           document.addEventListener("DOMContentLoaded", function() {
             const katexMacros = {{ page.extra.tex.macros | json_encode | default(value="{}") | safe }};
             renderMathInElement(document.body, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                ],
-                macros: katexMacros
+              delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+              ],
+              macros: katexMacros
             });
           });
         </script>

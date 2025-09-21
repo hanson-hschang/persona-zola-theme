@@ -6,16 +6,16 @@
 <footer id="footer" class="footer position-relative">
   <div class="container">
     <h3 class="sitename">{{ config.author }}</h3>
-    <p class="quote">{{ config.extra.quote }}</p>
+    <p class="quote">{{ config.extra.persona.quote }}</p>
     {{ 
       icon_link_macro::social(
-        links=config.extra.social_links, 
+        links=config.extra.persona.social_links, 
         extra_classes="d-flex justify-content-center"
       ) 
     }}
     <div class="container">
-      <div class="copyright">{{ config.extra.copyright | markdown | safe }}</div>
-      <div class="credits">{{ config.extra.credits | markdown | safe }}</div>
+      <div class="copyright">{{ config.extra.persona.copyright | markdown | safe }}</div>
+      <div class="credits">{{ config.extra.persona.credits | markdown | safe }}</div>
     </div>
   </div>
 </footer>

@@ -1,10 +1,25 @@
 <!-- Navigation Menu -->
-<nav id="navmenu" class="navmenu">
-  <ul>
-    <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
-    <li><a href="#about"><i class="bi bi-person-vcard navicon"></i><span>About</span></a></li>
-    <li><a href="#blogs"><i class="bi bi-pencil-square navicon"></i><span>Blogs</span></a></li>
-    <li><a href="#notes"><i class="bi bi-book navicon"></i><span>Notes</span></a></li>
-    <li><a href="#contact"><i class="bi bi-chat-text navicon"></i><span>Contact</span></a></li>
-  </ul>
-</nav>
+{% if (page and page.path == "/") or (section and section.path == "/") %}  
+<header id="header" class="header d-flex flex-column justify-content-center">
+  <nav id="navmenu" class="navmenu">
+    <ul>
+      <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
+      <li><a href="#about"><i class="bi bi-person-vcard navicon"></i><span>About</span></a></li>
+      <li><a href="#blogs"><i class="bi bi-pencil-square navicon"></i><span>Blogs</span></a></li>
+      <li><a href="#notes"><i class="bi bi-book navicon"></i><span>Notes</span></a></li>
+      <li><a href="#contact"><i class="bi bi-chat-text navicon"></i><span>Contact</span></a></li>
+    </ul>
+  </nav>
+</header>
+{% else %}
+<header id="header" class="header d-flex justify-content-center">
+  <nav id="navmenu" class="navmenu">
+    <ul>
+      <li><a href="/" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
+      <li><a href="/about"><i class="bi bi-person-vcard navicon"></i><span>About</span></a></li>
+      <li><a href="/blogs"><i class="bi bi-pencil-square navicon"></i><span>Blogs</span></a></li>
+      <li><a href="/notes"><i class="bi bi-book navicon"></i><span>Notes</span></a></li>
+    </ul>
+  </nav>
+</header>
+{% endif %}

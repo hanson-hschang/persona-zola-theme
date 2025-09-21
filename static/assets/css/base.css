@@ -48,6 +48,12 @@
   --nav-menu-mobile-border-width: 1px; /* The border width of the navigation menu */
 }
 
+/* Nav Menu Colors */
+:root {
+  --header-background-color: color-mix(in srgb, var(--default-color), transparent 96%); /* Background color for the header section of the website */
+  --header-color: #ffffff;
+}
+
 /* Spacing Variables - These variables define the spacing used throughout the website. They can be used to maintain consistent spacing between elements, such as margins and paddings */
 :root {
   --spacing-xxs: 0.25rem; /* 4px assuming 16px base */
