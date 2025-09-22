@@ -36,6 +36,14 @@
     scrollTop: {
       selector: '.scroll-top',
       threshold: 100
+    },
+    contactForm: {
+      selector: '.contact-form',
+      loading: '.loading',
+      errorMessage: '.error-message',
+      sentMessage: '.sent-message',
+      submitButton: 'button[type="submit"]',
+      hideMessageDelay: 3000
     }
   };
 
@@ -59,6 +67,7 @@
         this.initTyped();
         this.initNavigation();
         this.initScrollTop();
+        this.initContactForm();
         // Future initializations can be added here easily.
         // e.g., this.initSwiper();
       });
@@ -70,9 +79,6 @@
 
       // Initialize scroll event listeners
       this.initScrollEvents();
-
-      // Initialize contact form submission handling
-      this.initContactForm();
     },
     
     /**
@@ -226,23 +232,22 @@
      * Initializes contact form submission handling.
      */
     initContactForm() {
-      const form = document.querySelector('.contact-form');
+      const form = document.querySelector(CONFIG.contactForm.selector);
       if (!form) {
         return;
       }
-      const loading = form.querySelector('.loading');
-      const errorMessage = form.querySelector('.error-message');
-      const sentMessage = form.querySelector('.sent-message');
-      const submitButton = form.querySelector('button[type="submit"]');
 
-      // Hide all messages initially
+      const loading = form.querySelector(CONFIG.contactForm.loading);
+      const errorMessage = form.querySelector(CONFIG.contactForm.errorMessage);
+      const sentMessage = form.querySelector(CONFIG.contactForm.sentMessage);
+      const submitButton = form.querySelector(CONFIG.contactForm.submitButton);
+
       function hideAllMessages() {
         loading.classList.remove('show');
         errorMessage.classList.remove('show');
         sentMessage.classList.remove('show');
       }
 
-      // Show loading state
       function showLoading() {
         hideAllMessages();
         loading.classList.add('show');
@@ -250,60 +255,46 @@
         submitButton.textContent = 'Sending...';
       }
 
-      // Show success message
       function showSuccess() {
         hideAllMessages();
         sentMessage.classList.add('show');
         submitButton.disabled = false;
         submitButton.textContent = 'Send Message';
-        form.reset(); // Clear the form
+        form.reset();
+        setTimeout(hideAllMessages, CONFIG.contactForm.hideMessageDelay);
       }
 
-      // Show error message
-      function showError(message = 'Something went wrong. Please try again.') {
+      function showError(message) {
         hideAllMessages();
-        errorMessage.textContent = message;
+        errorMessage.textContent = message || 'Something went wrong. Please try again.';
         errorMessage.classList.add('show');
         submitButton.disabled = false;
         submitButton.textContent = 'Send Message';
+        setTimeout(hideAllMessages, CONFIG.contactForm.hideMessageDelay);
       }
 
-      form.addEventListener('submit', async function(e) {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
         showLoading();
 
-        const formData = new FormData(form);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
-        
-        fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: json
-        })
-        .then(async (response) => {
-          let json = await response.json();
-          if (response.status == 200) {
-              showSuccess();
+        try {
+          const formData = new FormData(form);
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+          });
+
+          const result = await response.json();
+
+          if (response.ok && result.success) {
+            showSuccess();
           } else {
-              console.log(response);
-              showError(json.message || 'Failed to send message. Please try again.');
+            showError(result.message);
           }
-        })
-        .catch(error => {
-            console.log(error);
-            showError(error || 'Something went wrong!');
-        })
-        .then(function() {
-            setTimeout(() => {
-                sentMessage.style.display = "none";
-                errorMessage.style.display = "none";
-            }, 3000);
-        });
+        } catch (error) {
+          console.error('Form submission error:', error);
+          showError('Network error. Please check your connection.');
+        }
       });
     },
 
