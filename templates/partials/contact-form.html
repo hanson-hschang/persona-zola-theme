@@ -1,5 +1,5 @@
 <div class="col-lg-8">
-  <form action="https://api.web3forms.com/submit" method="post" class="contact-form" data-aos="fade-up" data-aos-delay="200">
+  <form method="post" class="contact-form" data-aos="fade-up" data-aos-delay="200">
     
     <fieldset class="row gy-4">
       <legend style="display: none;">Contact Information</legend>
@@ -31,11 +31,12 @@
       <!-- Web3Forms Access Key -->
       <input type="hidden" name="access_key" value="{{ config.extra.persona.web3form_public_key }}">
 
+      <!-- Email Subject -->
+      <input type="hidden" name="subject" value=" New Submission from Contact Form at {{ config.title }}">
+
       <!-- Honeypot Spam Protection -->
       <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-      <!-- Custom Confirmation / Success Page -->
-      <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
     </fieldset>
 
     <div class="row gy-4">

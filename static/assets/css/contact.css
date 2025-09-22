@@ -168,3 +168,10 @@
     transform: rotate(360deg);
   }
 }
+
+/* Show messaging elements when the 'show' class is added by JS */
+.contact .contact-form .loading.show,
+.contact .contact-form .error-message.show,
+.contact .contact-form .sent-message.show {
+  display: block;
+}

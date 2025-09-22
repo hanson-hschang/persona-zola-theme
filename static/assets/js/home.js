@@ -70,6 +70,9 @@
 
       // Initialize scroll event listeners
       this.initScrollEvents();
+
+      // Initialize contact form submission handling
+      this.initContactForm();
     },
     
     /**
@@ -217,6 +220,91 @@
 
       // Store reference for scroll event handler
       this.scrollTopBtn = scrollTopBtn;
+    },
+
+    /**
+     * Initializes contact form submission handling.
+     */
+    initContactForm() {
+      const form = document.querySelector('.contact-form');
+      if (!form) {
+        return;
+      }
+      const loading = form.querySelector('.loading');
+      const errorMessage = form.querySelector('.error-message');
+      const sentMessage = form.querySelector('.sent-message');
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      // Hide all messages initially
+      function hideAllMessages() {
+        loading.classList.remove('show');
+        errorMessage.classList.remove('show');
+        sentMessage.classList.remove('show');
+      }
+
+      // Show loading state
+      function showLoading() {
+        hideAllMessages();
+        loading.classList.add('show');
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+      }
+
+      // Show success message
+      function showSuccess() {
+        hideAllMessages();
+        sentMessage.classList.add('show');
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+        form.reset(); // Clear the form
+      }
+
+      // Show error message
+      function showError(message = 'Something went wrong. Please try again.') {
+        hideAllMessages();
+        errorMessage.textContent = message;
+        errorMessage.classList.add('show');
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+      }
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        showLoading();
+
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: json
+        })
+        .then(async (response) => {
+          let json = await response.json();
+          if (response.status == 200) {
+              showSuccess();
+          } else {
+              console.log(response);
+              showError(json.message || 'Failed to send message. Please try again.');
+          }
+        })
+        .catch(error => {
+            console.log(error);
+            showError(error || 'Something went wrong!');
+        })
+        .then(function() {
+            setTimeout(() => {
+                sentMessage.style.display = "none";
+                errorMessage.style.display = "none";
+            }, 3000);
+        });
+      });
     },
 
     /**
