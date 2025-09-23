@@ -106,8 +106,8 @@ build_search_index = true
 
 # Taxonomies
 taxonomies = [
-  { name = "tags" },
-  { name = "categories" },
+  { name = "tags", feed = true },
+  { name = "categories", feed = true },
 ]
 
 [markdown]
@@ -118,8 +118,7 @@ external_links_no_referrer = true
 
 [extra]
 [extra.persona]
-title = "Your Name"
-subtitles = "Developer, Designer, Creator"
+# Note: title and subtitles are configured in content/_index.md
 quote = "Your inspiring quote here"
 
 # Social links
@@ -145,6 +144,18 @@ copyright = "&copy; 2024 Your Name. All Rights Reserved"
 credits = "Powered by [Zola](https://www.getzola.org/), [Bootstrap](https://getbootstrap.com/), and [Web3Forms](https://web3forms.com/)"
 ```
 
+4. **Create your home page** content in `content/_index.md`:
+
+```markdown
++++
+title = "Your Name"
+template = "index.html"
+
+[extra]
+subtitles = "Developer, Designer, Creator"
++++
+```
+
 ### Content Structure
 
 Create your content structure following this pattern:
@@ -162,44 +173,63 @@ content/
 │   ├── _index.md      # Blog section
 │   ├── post1.md       # Blog posts
 │   └── post2.md
-└── contact/
-    └── _index.md      # Contact page
+└── services/
+    └── _index.md      # Additional sections
 ```
 
 ### Section Configuration
 
-Each section can be configured with front matter:
+Each section can be configured with front matter. The theme supports three main section types:
+
+**Plain sections** (for static content like About, Services, etc.):
 
 ```markdown
 +++
 title = "About Me"
-template = "plain.html"
-weight = 1
+template = "page.html"
 
 [extra]
-# Section-specific icon for navigation
+# Section-specific icon for navigation (Bootstrap Icons)
 icon_class = "bi bi-person"
 # Display order (lower numbers appear first)
 order = 1
+# Section type determines rendering approach
+type = "plain"
 +++
 
 Your content here...
 ```
 
-For portfolio/project sections:
+**Category sections** (for portfolios, projects, showcases):
 
 ```markdown
 +++
 title = "My Projects"
-template = "category.html"
-weight = 2
+template = "section.html"
 
 [extra]
 icon_class = "bi bi-briefcase"
 order = 2
+type = "category"
 +++
 
 Showcase of my work and projects.
+```
+
+**Blog sections** (for blog posts and articles):
+
+```markdown
++++
+title = "Blog"
+template = "section.html"
+
+[extra]
+icon_class = "bi bi-journal-text"
+order = 3
+type = "blog"
++++
+
+My thoughts and articles.
 ```
 
 ## 🎨 Customization
@@ -219,11 +249,14 @@ You can override any template by creating a file with the same name in your site
 ```
 templates/
 ├── index.html         # Override home page
-├── plain.html         # Override plain pages
-├── category.html      # Override category pages
+├── page.html          # Override plain pages (formerly plain.html)
+├── section.html       # Override section pages (formerly category.html)
+├── blog-post.html     # Override blog post pages
 └── partials/
     ├── hero.html      # Override hero section
-    └── navigation.html # Override navigation
+    ├── navigation.html # Override navigation
+    ├── contact.html   # Override contact section
+    └── footer.html    # Override footer
 ```
 
 ### Adding Custom Sections
@@ -232,18 +265,19 @@ To add a new section to your site:
 
 1. Create a new directory in `content/`
 2. Add an `_index.md` file with appropriate front matter
-3. Configure the section order and icon in the front matter
+3. Configure the section order, icon, and type in the front matter
 
 Example:
 
 ```markdown
 +++
 title = "Services"
-template = "plain.html"
+template = "page.html"
 
 [extra]
 icon_class = "bi bi-gear"
 order = 3
+type = "plain"
 +++
 
 Description of your services...
@@ -285,6 +319,7 @@ Create blog posts in the `content/blog/` directory:
 title = "My First Post"
 date = 2024-01-15
 description = "A brief description of the post"
+template = "blog-post.html"
 
 [taxonomies]
 tags = ["zola", "web-development"]
@@ -306,12 +341,14 @@ Create project pages with rich metadata:
 title = "Project Name"
 date = 2024-01-15
 description = "Project description"
+template = "page.html"
 
 [extra]
 thumbnail = "project-thumb.jpg"
 live_url = "https://project-demo.com"
 github_url = "https://github.com/user/project"
 technologies = ["Rust", "JavaScript", "CSS"]
+type = "plain"
 +++
 
 Detailed project description...
