@@ -10,7 +10,7 @@ Always reference these instructions first and fallback to search or bash command
 ### Prerequisites and Setup
 - Install Zola static site generator (minimum version 0.20.0):
   ```bash
-  wget https://github.com/getzola/zola/releases/download/v0.19.2/zola-v0.19.2-x86_64-unknown-linux-gnu.tar.gz -O /tmp/zola.tar.gz
+  wget https://github.com/getzola/zola/releases/download/v0.20.0/zola-v0.20.0-x86_64-unknown-linux-gnu.tar.gz -O /tmp/zola.tar.gz
   tar -xzf /tmp/zola.tar.gz -C /tmp
   sudo mv /tmp/zola /usr/local/bin/
   ```
@@ -39,9 +39,7 @@ This is a **theme repository**, not a complete site. To test functionality:
 3. For additional sections, create structured content like:
    ```markdown
    +++
-   title = "About"
-   template = "section.html"
-   
+   title = "About"   
    [extra]
    order = 1
    icon_class = "bi bi-person"
