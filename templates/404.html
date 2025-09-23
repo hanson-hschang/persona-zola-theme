@@ -1,6 +1,5 @@
 {% extends "base.html" %}
-{% import "macros/title.html" as title_macro %}
-{% import "macros/content.html" as content_macro %}
+{% import "macros/render.html" as render_macro %}
 
 {% block head %}
   {{ super() }}
@@ -15,12 +14,10 @@
 
   <section class="plain section">
 
-    {{ 
-      title_macro::render(
-        title="Error 404 - Page Not Found", 
-        subtitle="The page you are looking for was not found or no longer exists."
-      ) 
-    }}
+    {{ render_macro::section_title(
+      title="Error 404 - Page Not Found", 
+      subtitle="The page you are looking for was not found or no longer exists."
+    ) }}
 
   </section>
 

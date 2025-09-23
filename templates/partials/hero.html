@@ -1,18 +1,17 @@
-{# 
-  Whichever page includes this partial will need to import the following at the top of the file.
-  import "macros/icon-link.html" as icon_link_macro
-#}
-
 <section id="hero" class="hero section">
   <img src="{{ get_url(path='assets/img/background.jpg') }}" alt="background image">
   <div class="container" data-aos="zoom-out">
     <div class="row justify-content-center">
       <div class="col-lg-9">
-        <h2>{{ config.extra.persona.title }}</h2>
-        <p>
-          <span class="typed" data-typed-items="{{ config.extra.persona.subtitles }}"></span>
-        </p>
-        {{ icon_link_macro::social(links=config.extra.persona.social_links) }}
+        <h2>{{ section.title }}</h2>
+        {% if section.extra and section.extra.subtitle %}
+          <p>
+            <span class="typed" data-typed-items="{{ section.extra.subtitles }}"></span>
+          </p>
+        {% endif %}
+        <div class="social-links">
+          {% include "partials/social-icon.html" %}
+        </div>
       </div>
     </div>
   </div>

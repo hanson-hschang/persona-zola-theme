@@ -13,8 +13,8 @@ compile_sass = true
 build_search_index = true
 
 taxonomies = [
-  { name = "tags" },
-  { name = "categories" },
+  { name = "tags", feed = true },
+  { name = "categories", feed = true },
 ]
 
 [markdown]
@@ -35,8 +35,6 @@ external_links_no_referrer = true
 [extra]
 
 [extra.persona]
-title = "Persona"
-subtitles = "a Portfolio, a Resume, a Blog, a Zola Theme"
 quote = "There's the private persona and the public persona, and the two shall never meet. --- Liev Schreiber"
 social_links = [
   { name = "GitHub", url = "https://github.com/hanson-hschang/persona-zola-theme", icon_class = "bi bi-github" },

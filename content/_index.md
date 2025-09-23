@@ -1,6 +1,6 @@
 +++
-title = "Home"
+title = "Persona"
 template = "index.html"
+[extra]
+subtitles = "a Portfolio, a Resume, a Blog, a Zola Theme"
 +++
-
-Welcome to Persona, a modern and responsive Zola theme perfect for portfolios, resumes, and personal blogs.
