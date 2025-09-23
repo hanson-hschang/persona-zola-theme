@@ -45,6 +45,6 @@ contact_infos = [
   { item = "Name", content = "Persona, Zola Theme", icon_class = "bi bi-person"},
   { item = "Email", content = "hanson.hschang+persona.zola.theme@gmail.com", icon_class = "bi bi-envelope"}
 ]
-# To set up web3form contact form, please create your public access key (following the instruction at https://web3forms.com/),
-# and uncomment the following line with the access key
-# web3form_public_key = "YOUR-ACCESS-KEY-HERE"
+# To set up web3form contact form, please create your public access key (following the instruction at https://web3forms.com/).
+# To remove the contact form, please comment out the following line.
+web3form_public_key = "YOUR-ACCESS-KEY-HERE"

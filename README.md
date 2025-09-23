@@ -1,17 +1,18 @@
 <div align="center">
 
-# 🎭 Persona
+# Persona [Zola](https://www.getzola.org/) Theme
 
-[![GitHub stars](https://img.shields.io/github/stars/hanson-hschang/persona-zola-theme?style=flat-square&labelColor=202b2d&color=087e96)](https://github.com/hanson-hschang/persona-zola-theme/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/hanson-hschang/persona-zola-theme?style=flat-square&labelColor=202b2d&color=087e96)](https://github.com/hanson-hschang/persona-zola-theme/forks)
-[![GitHub license](https://img.shields.io/github/license/hanson-hschang/persona-zola-theme?style=flat-square&labelColor=202b2d&color=087e96)](https://github.com/hanson-hschang/persona-zola-theme/blob/main/LICENSE)
-[![Zola](https://img.shields.io/badge/Zola-0.20+-087e96?style=flat-square&labelColor=202b2d)](https://www.getzola.org/)
+![code-size](https://img.shields.io/github/languages/code-size/hanson-hschang/persona-zola-theme)
+![repo-size](https://img.shields.io/github/repo-size/hanson-hschang/persona-zola-theme)
+![commit](https://img.shields.io/github/commit-activity/t/hanson-hschang/persona-zola-theme)
+![activity](https://img.shields.io/github/last-commit/hanson-hschang/persona-zola-theme)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fhanson-hschang.github.io%2Fpersona-zola-theme)
 
-**A modern, responsive [Zola](https://www.getzola.org/) theme for portfolios, resumes, and personal blogs**
-
-[Demo](https://hanson-hschang.github.io/persona-zola-theme/) • [Features](#-features) • [Installation](#-installation) • [Configuration](#-configuration)
+**A modern, responsive and lightweight theme for portfolios, resumes, and personal blogs**
 
 ![Persona Theme Screenshot](screenshot.png)
+
+[Demo](https://hanson-hschang.github.io/persona-zola-theme/) • [Features](#-features) • [Installation](#-installation) • [Configuration](#-configuration)
 
 </div>
 
@@ -34,8 +35,6 @@
 
 ## 🚀 Installation
 
-### Option 1: Git Submodule (Recommended)
-
 The easiest way to install the theme is to add it as a git submodule to your `themes` directory:
 
 ```bash
@@ -44,27 +43,14 @@ cd your-zola-site
 
 # Add the theme as a submodule
 git submodule add https://github.com/hanson-hschang/persona-zola-theme.git themes/persona
+```
 
+To update the theme:
+
+```bash
 # Update the submodule
 git submodule update --init --recursive
 ```
-
-### Option 2: Direct Download
-
-Alternatively, you can download the theme manually:
-
-```bash
-# Navigate to your themes directory
-cd themes
-
-# Clone the repository
-git clone https://github.com/hanson-hschang/persona-zola-theme.git persona
-```
-
-### Option 3: Download ZIP
-
-1. Download the [latest release](https://github.com/hanson-hschang/persona-zola-theme/releases) or clone the repository
-2. Extract the files to `themes/persona` in your Zola site directory
 
 ## ⚙️ Configuration
 
@@ -478,40 +464,30 @@ zola serve
 - Write clear commit messages
 - Ensure backwards compatibility
 
-### Reporting Issues
-
-Found a bug or have a feature request? Please:
-
-1. Check existing [issues](https://github.com/hanson-hschang/persona-zola-theme/issues)
-2. Create a new issue with detailed information
-3. Include steps to reproduce for bugs
-4. Provide context for feature requests
-
 ## 🆘 Troubleshooting
 
 ### Common Issues
 
-**Theme not loading:**
-- Ensure `theme = "persona"` is set in `config.toml`
-- Check that the theme is in the correct directory: `themes/persona/`
+- **Theme not loading:**
+  - Ensure `theme = "persona"` is set in `config.toml`
+  - Check that the theme is in the correct directory: `themes/persona/`
 
-**Styles not applying:**
-- Verify `compile_sass = true` is set in `config.toml`
-- Check that all required CSS files are present
+- **Navigation not working:**
+  - Ensure sections have proper front matter with `order` field
+  - Check that section metadata`extra.type` is correctly specified
 
-**Navigation not working:**
-- Ensure sections have proper front matter with `order` field
-- Check that section templates are correctly specified
-
-**Contact form not working:**
-- Verify `web3form_public_key` is set in configuration
-- Check Web3Forms documentation for setup
+- **Contact form not working:**
+  - Verify `web3form_public_key` is set in configuration
+  - Check [Web3Forms documentation](https://docs.web3forms.com/) for setup
 
 ### Getting Help
-
 - 📖 Read the [Zola documentation](https://www.getzola.org/documentation/)
 - 💬 Join the [Zola Discord community](https://discord.gg/dNCk5jJ)
 - 🐛 Report issues on [GitHub](https://github.com/hanson-hschang/persona-zola-theme/issues)
+  - Include minimal setup to reproduce for bugs
+- Request features on [GitHub](https://github.com/hanson-hschang/persona-zola-theme/issues)
+  - Provide detail context for feature requests
+
 
 ## 📄 License
 
@@ -523,15 +499,19 @@ This theme is open source and available under the [MIT License](LICENSE).
 
 - [**Zola**](https://www.getzola.org/) - A fast static site generator
 - [**Bootstrap**](https://getbootstrap.com/) - CSS framework for responsive design
-- [**MyResume Template**](https://bootstrapmade.com/demo/MyResume/) - Original template inspiration by BootstrapMade
-- [**Bootstrap Icons**](https://icons.getbootstrap.com/) - Icon library
-- [**AOS (Animate On Scroll)**](https://michalsnik.github.io/aos/) - Animation library
 - [**Web3Forms**](https://web3forms.com/) - Contact form service
+- [**Bootstrap Icons**](https://icons.getbootstrap.com/) - Icon library
 - [**Academicons**](https://jpswalsh.github.io/academicons/) - Academic icons
+- [**AOS (Animate On Scroll)**](https://michalsnik.github.io/aos/) - Animation library
+- [**BootstrapMade Templates**](https://bootstrapmade.com/)
+  - [MyResume](https://bootstrapmade.com/demo/MyResume)
+
 
 ## 🌟 Showcase
 
-Using Persona for your site? We'd love to see it! [Open an issue](https://github.com/hanson-hschang/persona-zola-theme/issues) or submit a PR to add your site to our showcase.
+Using Persona for your site? 
+We'd love to see it! 
+[Open an issue](https://github.com/hanson-hschang/persona-zola-theme/issues) or submit a PR to add your site to our showcase.
 
 ---
 
@@ -539,6 +519,6 @@ Using Persona for your site? We'd love to see it! [Open an issue](https://github
 
 **[⭐ Star this repository](https://github.com/hanson-hschang/persona-zola-theme) if you find it helpful!**
 
-*"There's the private persona and the public persona, and the two shall never meet."* — Liev Schreiber
+*"There's the private persona and the public persona, and the two shall never meet."* --- Liev Schreiber
 
 </div>
