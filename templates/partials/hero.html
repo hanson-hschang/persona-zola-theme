@@ -4,9 +4,11 @@
     <div class="row justify-content-center">
       <div class="col-lg-9">
         <h2>{{ section.title }}</h2>
-        <p>
-          <span class="typed" data-typed-items="{{ section.extra.subtitles }}"></span>
-        </p>
+        {% if section.extra and section.extra.subtitle %}
+          <p>
+            <span class="typed" data-typed-items="{{ section.extra.subtitles }}"></span>
+          </p>
+        {% endif %}
         <div class="social-links">
           {% include "partials/social-icon.html" %}
         </div>
