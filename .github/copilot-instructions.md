@@ -93,29 +93,21 @@ Always reference these instructions first and fallback to search or bash command
 ### Validation Scenarios
 After making template or style changes, always validate by:
 
-1. **Basic functionality test:**
-   ```bash
-   mkdir -p content
-   echo "+++\n+++\n\n# Test" > content/_index.md
-   zola build
-   zola serve --interface 0.0.0.0 --port 8000
-   ```
-
-2. **Full theme test with sections:**
+1. **Full theme test with sections:**
    - Create multiple content sections with proper front matter
    - Test navigation between sections
    - Verify responsive design
    - Check contact form display (if configured)
 
-3. **Template validation:**
+2. **Template validation:**
    - Ensure all macros render without errors
    - Test both single-page and multi-section layouts
    - Verify CSS and JavaScript assets load correctly
    - Test blog template with sample posts:
      ```bash
-     mkdir -p content/blog
-     echo "+++\ntitle = \"Blog\"\ntemplate = \"blog.html\"\n\n[extra]\norder = 2\nicon_class = \"bi bi-journal\"\ntemplate = \"category.html\"\n+++" > content/blog/_index.md
-     echo "+++\ntitle = \"Test Post\"\ndate = 2023-01-01\n\n[extra]\nexcerpt = \"Sample post\"\n+++\n\nTest content" > content/blog/test.md
+     mkdir -p content/blogs
+     echo "+++\ntitle = \"Blogs\"\n\n[extra]\norder = 2\nicon_class = \"bi bi-journal\"\ntype = \"category\"\n+++" > content/blogs/_index.md
+     echo "+++\ntitle = \"Test Post\"\ndate = 2025-01-01\n\n[extra]\nexcerpt = \"Sample post\"\n+++\n\nTest content" > content/blogs/test.md
      zola build && zola serve --interface 0.0.0.0 --port 8000
      ```
 

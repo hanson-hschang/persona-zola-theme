@@ -1,4 +1,5 @@
 {% import "macros/render.html" as render_macro %}
+{% import "macros/debug.html" as debug_macro %}
 
 {#
   Section Macros
@@ -17,9 +18,9 @@
     {% if pos.extra and pos.extra.type %}
       {% set section_type = pos.extra.type %}
       {% if section_type == "plain" %}
-        {{ section_macro::plain(pos=pos) }}
+        {{ self::plain(pos=pos) }}
       {% elif section_type == "category" %}
-        {{ section_macro::category(pos=pos) }}
+        {{ self::category(pos=pos) }}
       {% else %}
         {{ debug_macro::print(object="Unknown section type: " ~ pos.extra.type) }}
         {{ debug_macro::print(object=pos)}}
