@@ -1,18 +1,10 @@
-{# 
-  Whichever page includes this partial will need to import the following at the top of the file.
-  import "macros/icon-link.html" as icon_link_macro
-#}
-
 <footer id="footer" class="footer position-relative">
   <div class="container">
     <h3 class="sitename">{{ config.author }}</h3>
     <p class="quote">{{ config.extra.persona.quote }}</p>
-    {{ 
-      icon_link_macro::social(
-        links=config.extra.persona.social_links, 
-        extra_classes="d-flex justify-content-center"
-      ) 
-    }}
+    <div class="social-links d-flex justify-content-center">
+      {% include "partials/social-icon.html" %}
+    </div>
     <div class="container">
       <div class="copyright">{{ config.extra.persona.copyright | markdown | safe }}</div>
       <div class="credits">{{ config.extra.persona.credits | markdown | safe }}</div>

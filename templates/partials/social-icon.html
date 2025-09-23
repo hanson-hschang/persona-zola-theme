@@ -1,0 +1,9 @@
+{% for link in config.extra.persona.social_links %}
+  <a href="{{ link.url }}" 
+    aria-label="Link to my {{ link.name }} profile" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    <i class="{{ link.icon_class }}" aria-hidden="true"></i>
+  </a>
+{% endfor %}

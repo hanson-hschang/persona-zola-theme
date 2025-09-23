@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% import "macros/title.html" as title_macro %}
 {% import "macros/section.html" as section_macro %}
 
 
@@ -25,7 +24,7 @@
       {% set_global poss = poss | concat(with=[subsection]) %}
     {% endif %}
   {% endfor %}
-  {{ section_macro::render(poss=poss) }}
+  {{ section_macro::populate(poss=poss) }}
 
   {% include "partials/contact.html" %}
 
