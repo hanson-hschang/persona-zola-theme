@@ -3,9 +3,3 @@
 
 # Zola build directory
 public/
-
-# Test content (for theme testing only)
-content/
-
-# processed images
-static/processed_images/

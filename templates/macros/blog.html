@@ -1,17 +1,10 @@
-{% import "macros/breadcrumbs.html" as breadcrumbs_macro %}
-{% import "macros/title.html" as title_macro %}
-{% import "macros/icon-link.html" as icon_link_macro %}
-
-{#
-  Page Macros
-  These macros are used to render different types of pages on the website.
-#}
+{% import "macros/render.html" as render_macro %}
 
 {% macro post_thumbnail(thumbnail) %}
   <div class="post-img">
     <img src="{{ page.extra.thumbnail }}" alt="" class="img-fluid">
   </div>
-{% endmacro post_thumbnail %}
+{% endmacro %}
 
 {% macro post_share(link) %}
 
@@ -19,10 +12,10 @@
     <button id="share-button" class="share-button" aria-label="Share post">
       <i class="bi bi-box-arrow-up" aria-hidden="true"></i>
     </button>
-    {{ icon_link_macro::share()}}
+    {{ render_macro::share_menu(title=page.title, permalink=page.permalink) }}
   </div>
 
-{% endmacro post_share %}
+{% endmacro %}
 
 
 {% macro post_tag(tags) %}
@@ -33,7 +26,7 @@
       {% endfor %}
     {% endif %}
   </div>
-{% endmacro post_tag %}
+{% endmacro %}
 
 
 {% macro post_header(page) %}
@@ -69,12 +62,12 @@
     <div class="meta-top-divider"></div>
   </div>
 
-{% endmacro post_header %}
+{% endmacro %}
 
 
 {% macro post_content(content) %}
   <div class="post-content">{{ content | safe }}</div>
-{% endmacro post_content %}
+{% endmacro %}
 
 
 {% macro side_bar(page) %}
@@ -97,12 +90,12 @@
     </div>
   </aside>
 
-{% endmacro side_bar %}
+{% endmacro %}
 
 
 {% macro post(page) %}
 
-  {{ breadcrumbs_macro::render(crumbs=page.components) }}
+  {{ render_macro::breadcrumbs(crumbs=page.components) }}
   <div class="container">
     <div class="row">
       <section id="blog-post" class="blog-post section col-lg-8">
@@ -120,4 +113,4 @@
     </div>
   </div>
 
-{% endmacro blog_post%}
+{% endmacro %}

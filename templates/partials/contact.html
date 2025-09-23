@@ -1,12 +1,12 @@
 {# 
   Whichever page includes this partial will need to import the following at the top of the file.
-  import "macros/title.html" as title_macro
+  import "macros/render.html" as render_macro
 #}
 
 {% if config.extra.persona.contact_infos is defined %}
   <section id="contact" class="contact section">
 
-    {{ title_macro::render(title="Contact") }}
+    {{ render_macro::section_title(title="Contact") }}
 
     <div class="container" data-aos="fade" data-aos-delay="200">
       <div class="row gy-4">

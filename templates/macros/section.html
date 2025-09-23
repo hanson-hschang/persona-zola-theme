@@ -1,20 +1,40 @@
-{% import "macros/breadcrumbs.html" as breadcrumbs_macro %}
-{% import "macros/title.html" as title_macro %}
-{% import "macros/content.html" as content_macro %}
-{% import "macros/cards.html" as cards_macro %}
-{% import "macros/post-entry.html" as post_entry_macro %}
-
+{% import "macros/render.html" as render_macro %}
 
 {#
   Section Macros
   These macros are used to render different types of sections on the website.
-  The argument `pos` is expected to be a page or a section object that contains the necessary data.  
+  The argument `pos` is expected to be a page or a section object that contains the necessary data.
+  The macros include:
+  - populate: Iterates over a list of sections and populates them based on their section type.
+  - plain: Populates a plain section with a title, optional subtitle, and content.
+  - category: Populates a category section with a title and a list of subsections.
+  - blog: Populates a blog section with a list of blog posts.
 #}
 
+{% macro populate(poss) %}
+
+  {% for pos in poss | sort(attribute="extra.order") %}
+    {% if pos.extra and pos.extra.type %}
+      {% set section_type = pos.extra.type %}
+      {% if section_type == "plain" %}
+        {{ section_macro::plain(pos=pos) }}
+      {% elif section_type == "category" %}
+        {{ section_macro::category(pos=pos) }}
+      {% else %}
+        {{ debug_macro::print(object="Unknown section type: " ~ pos.extra.type) }}
+        {{ debug_macro::print(object=pos)}}
+      {% endif %}
+    {% else %}
+      {{ debug_macro::print(object="Section type not defined for section: " ~ pos.title) }}
+      {{ debug_macro::print(object=pos)}}
+    {% endif %}
+  {% endfor %}
+
+{% endmacro %}
 
 {% macro plain(pos) %}
   {% set title = pos.title %}
-  {% if pos.extra.subtitle %}
+  {% if pos.extra and pos.extra.subtitle %}
     {% set subtitle = pos.extra.subtitle %}
   {% else %}
     {% set subtitle = "" %}
@@ -22,19 +42,19 @@
 
   <section id="{{ title | lower }}" class="plain section">
 
-    {{ title_macro::render(title=title, subtitle=subtitle) }}
+    {{ render_macro::section_title(title=title, subtitle=subtitle) }}
 
-    {{ content_macro::render(content=pos.content) }}
-  
+    {{ render_macro::text_content(content=pos.content) }}
+
   </section>
-{% endmacro plain %}
+{% endmacro %}
 
 
 {% macro category(pos) %}
 
   <section id="{{ pos.title | lower }}" class="category section">
   
-    {{ title_macro::render(title=pos.title) }}
+    {{ render_macro::section_title(title=pos.title) }}
   
     {% set_global subsections = [] %}
     {% for subsection_path in pos.subsections %}
@@ -44,40 +64,27 @@
       {% endif %}
     {% endfor %}
   
-    {{ cards_macro::render(sections=subsections) }}
+    {{ render_macro::cards(sections=subsections) }}
   
   </section>
 
-{% endmacro category %}
+{% endmacro %}
 
-{% macro render(poss) %}
-
-  {% for pos in poss | sort(attribute="extra.order") %}
-    {% if "plain.html" == pos.extra.template %}
-      {{ section_macro::plain(pos=pos) }}
-    {% elif "category.html" == pos.extra.template %}
-      {{ section_macro::category(pos=pos) }}
-    {% else %}
-      {# show 404 #}
-    {% endif %}
-  {% endfor %}
-
-{% endmacro render %}
 
 {% macro blog(pos) %}
 
-  {{ breadcrumbs_macro::render(crumbs=pos.components) }}
+  {{ render_macro::breadcrumbs(crumbs=pos.components) }}
 
   <section id="{{ pos.title | lower }}" class="category section">
   
-    {{ title_macro::render(title=pos.title) }}
+    {{ render_macro::section_title(title=pos.title) }}
   
   </section>
 
   {% if pos.pages %}
     <ol id="post-entries" class="container" data-aos="fade-up">
       {% for page in pos.pages %}
-        {{ post_entry_macro::render(
+        {{ render_macro::post_entry(
           title=page.title,
           date=page.date | date(format="%b %d, %Y"),
           link=page.permalink,
@@ -87,4 +94,4 @@
     </ol>
   {% endif %}
 
-{% endmacro blog %}
+{% endmacro %}
