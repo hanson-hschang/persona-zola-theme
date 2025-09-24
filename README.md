@@ -10,7 +10,7 @@
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fhanson-hschang.github.io%2Fpersona-zola-theme)
 ![GitHub Release](https://img.shields.io/github/v/release/hanson-hschang/persona-zola-theme)
 
-**A modern, responsive and lightweight theme for resume, portfolio, and personal blog**
+**A modern, responsive and lightweight theme for resume, portfolio, and blog**
 
 ![Persona Theme Screenshot](screenshot.png)
 
@@ -25,7 +25,7 @@
 - ⚡️ **Fast Performance**: Lightweight and optimized for speed
 - 📋 **Resume/CV Section**: Dedicated section for your resume or CV
 - 🎭 **Portfolio Showcase**: Showcase your work with elegant project sections
-- 📝 **Blog Support**: Built-in blog functionality with tags and categories
+- 📝 **Blog with TeX**: Built-in blog functionality with $\KaTeX$ support
 - 📧 **Contact Forms**: Integrated contact form support with Web3Forms
 - 🔍 **Search Ready**: Built-in search index generation
 
@@ -41,12 +41,8 @@ Using `Persona` for your site?
 We'd love to see it! 
 Submit a PR to add your site to our showcase.
 
-
-<details>
-  <summary> <a href="#">Show Your Site</a> - Add your site with us!</summary>
-  
-  - [Hanson.HSChang](https://hanson-hschang.github.io/) - Personal website of Dr. Chang, Heng-Sheng
-</details>
+- [Show Your Site](#-showcase) - Add your site with us!
+- [Hanson.HSChang](https://hanson-hschang.github.io/) - Personal website of Heng-Sheng Chang
 
 ## 🚀 Installation
 
@@ -126,10 +122,11 @@ git submodule update --init --recursive
 
   - landing page content in `content/_index.md`:
 
-    ```markdown
+    ```toml
     +++
     title = "Presented Site Name"
     template = "index.html"
+    
     [extra]
     subtitles = "Item 1, Item 2, Item 3"
     +++
