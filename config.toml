@@ -1,10 +1,10 @@
 # The URL this site will be built for
 base_url = "https://hanson-hschang.github.io/persona-zola-theme"
 
-# The site title and description
+# The basic site information
 title = "Persona - Zola Theme "
-description = "A portfolio, a resume, a blog, and a Zola theme."
 author = "Persona, Zola Theme"
+description = "A portfolio, a resume, a blog, and a Zola theme."
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -35,16 +35,32 @@ external_links_no_referrer = true
 [extra]
 
 [extra.persona]
-quote = "There's the private persona and the public persona, and the two shall never meet. --- Liev Schreiber"
+# Note: landing page title and subtitles are configured in content/_index.md
+
+# Social links
+# A list of your social media profiles to display.
+#
+# Find icon classes from:
+# - Bootstrap Icons: https://icons.getbootstrap.com/
+# - Academicons: https://jpswalsh.github.io/academicons/
 social_links = [
   { name = "GitHub", url = "https://github.com/hanson-hschang/persona-zola-theme", icon_class = "bi bi-github" },
 ]
-copyright = "&copy; All Rights Reserved"
-credits = "Powered by [Zola](https://www.getzola.org/), [Bootstrap](https://getbootstrap.com/), and [Web3Forms](https://web3forms.com/)"
+
+# Contact information
+# A list of contact information to display.
+#
+# Find icon classes from:
+# - Bootstrap Icons: https://icons.getbootstrap.com/
 contact_infos = [
   { item = "Name", content = "Persona, Zola Theme", icon_class = "bi bi-person"},
   { item = "Email", content = "hanson.hschang+persona.zola.theme@gmail.com", icon_class = "bi bi-envelope"}
 ]
-# To set up web3form contact form, please create your public access key (following the instruction at https://web3forms.com/),
-# and uncomment the following line with the access key
-# web3form_public_key = "YOUR-ACCESS-KEY-HERE"
+# To set up web3form contact form, please create your public access key (following the instruction at https://web3forms.com/).
+# To remove the contact form, please comment out the following line.
+web3form_public_key = "YOUR-ACCESS-KEY-HERE"
+
+# Footer
+quote = "There's the private persona and the public persona, and the two shall never meet. --- Liev Schreiber"
+copyright = "&copy; All Rights Reserved"
+credits = "Powered by [Zola](https://www.getzola.org/), [Bootstrap](https://getbootstrap.com/), and [Web3Forms](https://web3forms.com/)"

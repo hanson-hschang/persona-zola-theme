@@ -24,6 +24,12 @@
       {% set_global poss = poss | concat(with=[subsection]) %}
     {% endif %}
   {% endfor %}
+  {% for page in section.pages %}
+    {% if page.extra.order and page.extra.order > 0 %}
+      {% set_global poss = poss | concat(with=[page]) %}
+    {% endif %}
+  {% endfor %}
+  {% set_global poss = poss | sort(attribute="extra.order") %}
   {{ section_macro::populate(poss=poss) }}
 
   {% include "partials/contact.html" %}

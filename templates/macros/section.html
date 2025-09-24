@@ -25,6 +25,9 @@
         {{ debug_macro::print(object="Unknown section type: " ~ pos.extra.type) }}
         {{ debug_macro::print(object=pos)}}
       {% endif %}
+    {% elif pos.slug %}
+      {{ debug_macro::print(object="Falling back to plain section for: " ~ pos.title ~ " (slug: " ~ pos.slug ~ ") due to missing type") }}
+      {{ self::plain(pos=pos) }}
     {% else %}
       {{ debug_macro::print(object="Section type not defined for section: " ~ pos.title) }}
       {{ debug_macro::print(object=pos)}}
