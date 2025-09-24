@@ -1,0 +1,21 @@
+name: PageSpeed Insights Report
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create PageSpeed Report
+        uses: lowlighter/metrics@latest
+        with:
+          filename: pagespeed-report.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_pagespeed: yes
+          plugin_pagespeed_detailed: yes
+          # plugin_pagespeed_screenshot: yes
+          plugin_pagespeed_token: ${{ secrets.GOOGLE_API_PAGESPEED_INSIGHTS }}
+          plugin_pagespeed_url: https://mabuya.vercel.app/
+          # plugin_pagespeed_pwa: yes
