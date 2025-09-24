@@ -3,6 +3,9 @@ name: PageSpeed Insights Report
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write  # Required to commit files
+
 jobs:
   build:
     runs-on: ubuntu-latest
