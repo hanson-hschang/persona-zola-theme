@@ -1,6 +1,6 @@
 <div align="center">
 
-# Persona [Zola](https://www.getzola.org/) Theme
+# `Persona` [Zola](https://www.getzola.org/) Theme
 
 ![code-size](https://img.shields.io/github/languages/code-size/hanson-hschang/persona-zola-theme)
 ![repo-size](https://img.shields.io/github/repo-size/hanson-hschang/persona-zola-theme)
@@ -10,11 +10,11 @@
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fhanson-hschang.github.io%2Fpersona-zola-theme)
 ![GitHub Release](https://img.shields.io/github/v/release/hanson-hschang/persona-zola-theme)
 
-**A modern, responsive and lightweight theme for portfolios, resumes, and personal blogs**
+**A modern, responsive and lightweight theme for resume, portfolio, and personal blog**
 
 ![Persona Theme Screenshot](screenshot.png)
 
-[Demo](https://hanson-hschang.github.io/persona-zola-theme/) • [Features](#-features) • [Showcase](#-showcase) • [Installation](#-installation) • [Configuration](#-configuration) • [Troubleshooting](#-troubleshooting) • [Credits](#-credits)
+[Demo](https://hanson-hschang.github.io/persona-zola-theme/) • [Features](#-features) • [Showcase](#-showcase) • [Installation](#-installation) • [Configuration](#%EF%B8%8F-configuration) • [Troubleshooting](#-troubleshooting) • [Credits](#-credits)
 
 </div>
 
@@ -29,19 +29,31 @@
 - 📧 **Contact Forms**: Integrated contact form support with Web3Forms
 - 🔍 **Search Ready**: Built-in search index generation
 
+<div align="center">
+
+[![pagespeed report](pagespeed-report.svg)](https://pagespeed.web.dev/)
+
+</div>
+
 ## 🌟 Showcase
 
-Using [Persona](https://hanson-hschang.github.io/persona-zola-theme/) for your site? 
+Using `Persona` for your site? 
 We'd love to see it! 
 Submit a PR to add your site to our showcase.
 
-- [Hanson.HSChang](https://hanson-hschang.github.io/) - Personal website of Dr. Chang, Heng-Sheng
-- [Your Site Here](#) - Add your site!
 
+<details>
+  <summary> <a href="#">Show Your Site</a> - Add your site with us!</summary>
+  
+  - [Hanson.HSChang](https://hanson-hschang.github.io/) - Personal website of Dr. Chang, Heng-Sheng
+</details>
 
 ## 🚀 Installation
 
-The easiest way to install the theme is to add it as a git submodule to your `themes` directory:
+This is a Zola theme.
+Make sure you have [Zola installed](https://www.getzola.org/documentation/getting-started/installation/) before proceeding.
+
+After [initializing your Zola site](https://www.getzola.org/documentation/getting-started/overview/#initialize-site), the easiest way to install the theme is to add it as a git submodule to your `themes` directory:
 
 ```bash
 # Navigate to your Zola site directory
@@ -62,23 +74,23 @@ git submodule update --init --recursive
 
 ### Basic Setup
 
-1. **Copy the configuration and landing page content** from the theme to get started quickly:
+1. **Copy the configuration and the landing page content** from the theme to get started quickly:
 
     ```bash
+    # Copy the configuration
+    cp themes/persona/config.toml config.toml
+
     # Copy the landing page content
     cp themes/persona/content/_index.md content/
-
-    # Copy the configuration
-    cp themes/persona/config.toml config.toml.example
     ```
 
-2. **Enable the theme** in your `config.toml` by adding at the beginning of the file:
+2. **Enable the theme** by adding the following line at the beginning of your `config.toml` file:
 
     ```toml
     theme = "persona"
     ```
 
-3. **Customization** 
+3. **Customization** :
 
   - site settings in your `config.toml`:
 
@@ -87,7 +99,7 @@ git submodule update --init --recursive
     base_url = "https://yourdomain.com"
 
     # The basic site information
-    title = "Your Name - Portfolio"
+    title = "Your Site Name"
     author = "Your Name"
     description = "Your personal resume, portfolio and blog"
 
@@ -112,20 +124,21 @@ git submodule update --init --recursive
     ]
     ```
 
-  - home page content in `content/_index.md`:
+  - landing page content in `content/_index.md`:
 
     ```markdown
     +++
-    title = "Your Name"
+    title = "Presented Site Name"
     template = "index.html"
     [extra]
     subtitles = "Item 1, Item 2, Item 3"
     +++
     ```
 
-  - background image as `static/assets/img/background.jpg`
-  - favicon as `static/assets/img/favicon.ico`
-  - apple touch icon as `static/assets/img/apple-touch-icon.png`
+  - Update your assets in `static/assets/img/`:
+    - [hero image](https://en.wiktionary.org/wiki/hero_image): `background.jpg`
+    - [favicon](https://en.wikipedia.org/wiki/Favicon): `favicon.ico`
+    - [apple touch icon](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html): `apple-touch-icon.png`
 
 ### Section Configuration
 
@@ -137,9 +150,10 @@ The theme supports three main section types:
 
 Here is how to set them up:
 
-```markdown
+```toml
 +++
 title = "Title of the Section"
+
 [extra]
 # Section-specific icon for navigation (Bootstrap Icons)
 icon_class = "bi bi-person"
@@ -167,8 +181,8 @@ type = "type"  # "plain", "category", or "blog"
   - Check [Web3Forms documentation](https://docs.web3forms.com/) for setup
 
 ### Getting Help
-- 📖 Read the [Zola documentation](https://www.getzola.org/documentation/)
-- 🐛 Report issues or request features on [GitHub](https://github.com/hanson-hschang/persona-zola-theme/issues)
+- Read the [Zola documentation](https://www.getzola.org/documentation/)
+- Report issues or request features by [contributing](CONTRIBUTING.md) on GitHub
 
 
 ## 🙏 Credits
@@ -181,7 +195,11 @@ type = "type"  # "plain", "category", or "blog"
 - [**Bootstrap Icons**](https://icons.getbootstrap.com/) - Icon library
 - [**Academicons**](https://jpswalsh.github.io/academicons/) - Academic icons
 - [**AOS (Animate On Scroll)**](https://michalsnik.github.io/aos/) - Animation library
-- [**BootstrapMade Templates**](https://bootstrapmade.com/) - [MyResume](https://bootstrapmade.com/demo/MyResume) • [Active](https://bootstrapmade.com/demo/Active) • [UpConstruction](https://bootstrapmade.com/demo/UpConstruction)
+- [**Google Fonts**](https://fonts.google.com/) - Font library
+- [**Dynamic Badges**](https://shields.io/) - Customizable badges
+- [**PageSpeed Insights**](https://github.com/lowlighter/metrics/tree/master/source/plugins/pagespeed) - Automated performance reporting
+- [**BootstrapMade Templates**](https://bootstrapmade.com/) - [Active](https://bootstrapmade.com/demo/Active) • [MyResume](https://bootstrapmade.com/demo/MyResume) • [UpConstruction](https://bootstrapmade.com/demo/UpConstruction)
+- [**Zola Themes**](https://www.getzola.org/themes/) - [Mabuya](https://mabuya.vercel.app/) • [Vonge](https://pascal-berrang.de/vonge-zola-theme/) • [Zluinav](https://harrymkt.github.io/zluinav/)
 
 
 ---
