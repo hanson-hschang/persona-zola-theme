@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # Required to commit files
+  contents: write
 
 jobs:
   build:
@@ -19,6 +19,10 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           lfs: true
+
+      - name: Sleep for 2 minutes to allow GH Pages to update
+        run: sleep 120s
+        shell: bash
 
       - name: Create PageSpeed Report
         uses: lowlighter/metrics@latest
