@@ -7,15 +7,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          lfs: true
+
       - name: Create PageSpeed Report
         uses: lowlighter/metrics@latest
         with:
           filename: pagespeed-report.svg
-          token: NOT_NEEDED
+          token: ${{ secrets.GITHUB_TOKEN }}
           base: ""
           plugin_pagespeed: yes
           # plugin_pagespeed_detailed: yes
           plugin_pagespeed_screenshot: yes
           plugin_pagespeed_token: ${{ secrets.GOOGLE_API_PAGESPEED_INSIGHTS }}
-          plugin_pagespeed_url: https://hanson-hschang.github.io/persona-zola-theme/
+          plugin_pagespeed_url: ${{ vars.SITE_URL }}
           # plugin_pagespeed_pwa: yes
