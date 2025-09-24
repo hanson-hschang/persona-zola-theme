@@ -1,6 +1,7 @@
 # Contributing to Persona
 
-Thank you for your interest in contributing to the Persona Zola theme! We welcome contributions from the community and appreciate your help in making this theme better.
+Thank you for your interest in contributing to the Persona Zola theme! 
+We welcome contributions from the community and appreciate your help in making this theme better.
 
 ## 🚀 Getting Started
 
@@ -14,29 +15,17 @@ Thank you for your interest in contributing to the Persona Zola theme! We welcom
 
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/persona-zola-theme.git
-   cd persona-zola-theme
-   ```
+    ```bash
+    git clone https://github.com/YOUR-USERNAME/persona-zola-theme.git
+    cd persona-zola-theme
+    ```
 
-3. **Create a test site** to develop with:
-   ```bash
-   # Create basic content for testing
-   mkdir -p content
-   echo '+++
-   title = "Test Site"
-   template = "index.html"
-   +++
-   
-   This is a test site for theme development.' > content/_index.md
-   ```
+3. **Start the development server**:
+    ```bash
+    zola serve
+    ```
 
-4. **Start the development server**:
-   ```bash
-   zola serve
-   ```
-
-5. **Make your changes** and test them locally
+4. **Make your changes** and test them locally
 
 ## 🎯 How to Contribute
 
@@ -62,12 +51,12 @@ Thank you for your interest in contributing to the Persona Zola theme! We welcom
 
 1. **Create a feature branch**:
    ```bash
-   git checkout -b feature/your-feature-name
+   git checkout -b feat/your-feature-name
    ```
 
 2. **Make your changes**:
    - Follow existing code style
-   - Test thoroughly across different screen sizes
+   - Test thoroughly across different screen sizes (mobile, tablet, desktop)
    - Update documentation if needed
 
 3. **Commit your changes**:
@@ -111,40 +100,17 @@ Thank you for your interest in contributing to the Persona Zola theme! We welcom
 
 - **Update README.md** if you add new features
 - **Add code comments** for complex functionality
-- **Include examples** in configuration sections
-- **Test documentation** to ensure accuracy
+- **Include examples** under the `content/` directory
 
 ## 🧪 Testing
-
-### Manual Testing
 
 Before submitting a PR, please test:
 
 1. **Different screen sizes** (mobile, tablet, desktop)
-2. **Multiple browsers** (Chrome, Firefox, Safari)
+2. **Multiple browsers** (Chrome, Firefox, Safari, Edge)
 3. **Theme building** with `zola build`
 4. **Development server** with `zola serve`
 5. **Configuration options** work as expected
-
-### Test Content
-
-Create diverse test content to verify your changes:
-
-```markdown
-# Example test content structure
-content/
-├── _index.md           # Home page
-├── about/
-│   └── _index.md       # Plain template
-├── portfolio/
-│   ├── _index.md       # Category template
-│   └── project1.md
-├── blog/
-│   ├── _index.md       # Blog section
-│   └── post1.md        # Blog post
-└── services/
-    └── _index.md       # Custom section
-```
 
 ## 🎨 Design Guidelines
 
@@ -169,7 +135,6 @@ content/
 
 - **Use semantic HTML** elements
 - **Provide alt text** for images
-- **Ensure keyboard navigation** works
 - **Maintain color contrast** ratios
 - **Test with screen readers** when possible
 
@@ -259,26 +224,12 @@ We especially welcome contributions in these areas:
 - **Theme variants**
 - **Integration examples**
 
-## 🆘 Getting Help
-
-If you need help contributing:
-
-- **Read the [Zola documentation](https://www.getzola.org/documentation/)**
-- **Check existing issues** and discussions
-- **Join the [Zola Discord](https://discord.gg/dNCk5jJ)** community
-- **Open a discussion** on GitHub
-
-## 📜 Code of Conduct
-
-Please note that this project is released with a [Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
-
 ## 🎉 Recognition
 
 Contributors are recognized in several ways:
 
 - **GitHub contributors** list
 - **Changelog** mentions for significant contributions
-- **Social media** shoutouts for major features
 - **Showcase** section for sites using contributed features
 
-Thank you for contributing to Persona! 🎭
+Thank you for contributing to Persona!
