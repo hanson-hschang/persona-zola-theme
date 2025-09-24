@@ -25,7 +25,7 @@
 - ⚡️ **Fast Performance**: Lightweight and optimized for speed
 - 📋 **Resume/CV Section**: Dedicated section for your resume or CV
 - 🎭 **Portfolio Showcase**: Showcase your work with elegant project sections
-- 📝 **Blog with TeX**: Built-in blog functionality with $\KaTeX$ support
+- 📝 **Blog with $\TeX$**: Built-in blog functionality with KaTeX support
 - 📧 **Contact Forms**: Integrated contact form support with Web3Forms
 - 🔍 **Search Ready**: Built-in search index generation
 
@@ -184,17 +184,19 @@ type = "type"  # "plain", "category", or "blog"
 
 ## 🙏 Credits
 
-[**Persona**](https://github.com/hanson-hschang/persona-zola-theme) is built with and inspired by:
+`Persona` is built with and inspired by:
 
 - [**Zola**](https://www.getzola.org/) - A fast static site generator
 - [**Bootstrap**](https://getbootstrap.com/) - CSS framework for responsive design
 - [**Web3Forms**](https://web3forms.com/) - Contact form service
+- [**KaTeX**](https://katex.org/) - Fast math typesetting library
 - [**Bootstrap Icons**](https://icons.getbootstrap.com/) - Icon library
 - [**Academicons**](https://jpswalsh.github.io/academicons/) - Academic icons
 - [**AOS (Animate On Scroll)**](https://michalsnik.github.io/aos/) - Animation library
 - [**Google Fonts**](https://fonts.google.com/) - Font library
 - [**Dynamic Badges**](https://shields.io/) - Customizable badges
 - [**PageSpeed Insights**](https://github.com/lowlighter/metrics/tree/master/source/plugins/pagespeed) - Automated performance reporting
+- [**GitHub**](https://github.com/features) - [Actions (CI/CD)](https://github.com/features/actions) • [Pages (Hosting Website)](https://docs.github.com/en/pages/getting-started-with-github-pages) • [Copilot (AI Agent)](https://docs.github.com/en/copilot/get-started/what-is-github-copilot)
 - [**BootstrapMade Templates**](https://bootstrapmade.com/) - [Active](https://bootstrapmade.com/demo/Active) • [MyResume](https://bootstrapmade.com/demo/MyResume) • [UpConstruction](https://bootstrapmade.com/demo/UpConstruction)
 - [**Zola Themes**](https://www.getzola.org/themes/) - [Mabuya](https://mabuya.vercel.app/) • [Vonge](https://pascal-berrang.de/vonge-zola-theme/) • [Zluinav](https://harrymkt.github.io/zluinav/)
 
