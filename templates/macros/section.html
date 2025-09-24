@@ -26,7 +26,8 @@
         {{ debug_macro::print(object=pos)}}
       {% endif %}
     {% elif pos.slug %}
-      {{ debug_macro::print(object="Falling back to plain section for: " ~ pos.title ~ " (slug: " ~ pos.slug ~ ") due to missing type") }}
+      {{ debug_macro::print(object="Falling back to plain type section for: " ~ pos.title ~ " (slug: " ~ pos.slug ~ ") due to missing type.") }}
+      {{ debug_macro::print(object="To remove the fallback, please define the `extra.type` in the front matter of '" ~ pos.relative_path ~ "' explicitly.") }}
       {{ self::plain(pos=pos) }}
     {% else %}
       {{ debug_macro::print(object="Section type not defined for section: " ~ pos.title) }}

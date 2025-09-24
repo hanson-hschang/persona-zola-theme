@@ -1,6 +1,7 @@
 +++
 title = "About"
 [extra]
+type = "plain"
 icon_class = "bi bi-person-vcard"
 subtitle = "Public Self & Private Soul"
 order = 10
