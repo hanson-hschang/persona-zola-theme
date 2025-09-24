@@ -156,7 +156,7 @@ type = "type"  # "plain", "category", or "blog"
 
 - **Theme not loading:**
   - Ensure `theme = "persona"` is set in `config.toml`
-  - Check that the theme is in the correct directory: `themes/persona/
+  - Check that the theme is in the correct directory: `themes/persona/`
 
 - **Navigation not working:**
   - Ensure sections have proper front matter with `order` field
