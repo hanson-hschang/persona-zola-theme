@@ -10,7 +10,7 @@
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fhanson-hschang.github.io%2Fpersona-zola-theme)
 ![GitHub Release](https://img.shields.io/github/v/release/hanson-hschang/persona-zola-theme)
 
-**A modern, responsive and lightweight theme for resume, portfolio, and blog**
+**a modern, responsive and lightweight theme for resume, portfolio, and blog**
 
 ![Persona Theme Screenshot](screenshot.png)
 
@@ -88,7 +88,7 @@ git submodule update --init --recursive
 
 3. **Customization** :
 
-  - site settings in your `config.toml`:
+  - Configure site settings in your `config.toml`:
 
     ```toml
     # The URL this site will be built for
@@ -120,7 +120,7 @@ git submodule update --init --recursive
     ]
     ```
 
-  - landing page content in `content/_index.md`:
+  - Modify landing page content in `content/_index.md`:
 
     ```toml
     +++
