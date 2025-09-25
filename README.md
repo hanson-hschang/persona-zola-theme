@@ -77,7 +77,7 @@ git submodule update --init --recursive
     cp themes/persona/config.toml config.toml
 
     # Copy the landing page content
-    cp themes/persona/content/_index.md content/
+    cp themes/persona/content/_index.md content/_index.md
     ```
 
 2. **Enable the theme** by adding the following line at the beginning of your `config.toml` file:
@@ -86,7 +86,7 @@ git submodule update --init --recursive
     theme = "persona"
     ```
 
-3. **Customization** :
+3. **Customization**:
 
   - Configure site settings in your `config.toml`:
 
@@ -102,7 +102,7 @@ git submodule update --init --recursive
     [extra]
 
     [extra.persona]
-    # Note: landing page title and subtitles are configured in content/_index.md
+    # Note: landing page title and subtitles are configured in `content/_index.md`
 
     # Social links
     social_links = [

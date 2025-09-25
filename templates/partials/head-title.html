@@ -1,8 +1,8 @@
 <title>
-  {% if page and page.title %}
+  {% if page and page.title and (page.path != "/") %}
     {# This handles regular pages #}
     {{ page.title }} &middot; {{ config.title }}
-  {% elif section and section.title %}
+  {% elif section and section.title and (section.path != "/") %}
     {# This new part handles section pages #}
     {{ section.title }} &middot; {{ config.title }}
   {% else %}

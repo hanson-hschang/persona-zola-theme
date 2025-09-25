@@ -1,13 +1,16 @@
 # The URL this site will be built for
-base_url = "https://hanson-hschang.github.io/persona-zola-theme"
+base_url = "https://hanson-hschang.github.io/persona-zola-theme/"
 
 # The basic site information
 title = "Persona - Zola Theme "
 author = "Persona, Zola Theme"
-description = "A portfolio, a resume, a blog, and a Zola theme."
+description = "A modern, responsive and lightweight theme for resume, portfolio, and blog."
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
+
+# Whether to automatically generate a feed
+generate_feeds = false
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
@@ -19,8 +22,10 @@ taxonomies = [
 
 [markdown]
 # Whether to do syntax highlighting
-# Theme can be customized by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+
+# The theme to use for code highlighting
+highlight_theme = "base16-ocean-light"
 
 # Whether external links are to be opened in a new tab
 # If this is true, a `rel="noopener"` will always automatically be added for security reasons
@@ -35,7 +40,7 @@ external_links_no_referrer = true
 [extra]
 
 [extra.persona]
-# Note: landing page title and subtitles are configured in content/_index.md
+# Note: landing page title and subtitles are configured in `content/_index.md`
 
 # Social links
 # A list of your social media profiles to display.
@@ -58,7 +63,7 @@ contact_infos = [
 ]
 # To set up web3form contact form, please create your public access key (following the instruction at https://web3forms.com/).
 # To remove the contact form, please comment out the following line.
-web3form_public_key = "YOUR-ACCESS-KEY-HERE"
+web3form_public_key = "your-access-key-here"
 
 # Footer
 quote = "There's the private persona and the public persona, and the two shall never meet. --- Liev Schreiber"
